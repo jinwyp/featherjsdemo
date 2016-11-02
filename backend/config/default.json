@@ -1,0 +1,12 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "mongodb": "mongodb://localhost:27017/slide",
+  "public": "../public/",
+  "auth": {
+    "token": {
+      "secret": "Iub8wbLGd6jN+Tptx+FFiBQtE7e+TJE4+YFFNsR3/WqH+cI7MF8WPO2nRTwB7tBEflxbki7d4Yet/tAWzAWJeA=="
+    },
+    "local": {}
+  }
+}
