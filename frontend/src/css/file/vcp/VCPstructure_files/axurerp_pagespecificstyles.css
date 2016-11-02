@@ -1,0 +1,154 @@
+﻿body {
+    margin: 0px;
+}
+
+div {
+    background-repeat: no-repeat;
+}
+
+.raw_image {
+    width: 100%;
+    height: 100%;
+}
+
+.preload {
+    display: none;
+}
+#main_container {
+}
+
+.form_sketch {
+    border-color: transparent;
+    background-color: transparent;
+}
+
+.u0_normal {
+    background-image: url('../VCPstructure_files/u0_normal.png');
+}
+
+.u0_container {
+    position:absolute;
+    left:8px;
+    top:1122px;
+    width:689px;
+    height:599px;
+}
+
+#u0_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:689px;
+    height:599px;
+}
+
+.u1 {
+    position:absolute;
+    left:2px;
+    top:292px;
+    width:685px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u2 {
+    position:absolute;
+    left:19px;
+    top:7px;
+    width:278px;
+    height:42px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u3 {
+    position:absolute;
+    left:19px;
+    top:1764px;
+    width:547px;
+    height:24px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u4_normal {
+    background-image: url('../VCPstructure_files/u4_normal.png');
+}
+
+.u4_container {
+    position:absolute;
+    left:68px;
+    top:1817px;
+    width:667px;
+    height:573px;
+}
+
+#u4_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:667px;
+    height:573px;
+}
+
+.u5 {
+    position:absolute;
+    left:2px;
+    top:278px;
+    width:663px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u6_normal {
+    background-image: url('../VCPstructure_files/u6_normal.png');
+}
+
+.u6_container {
+    position:absolute;
+    left:15px;
+    top:68px;
+    width:1587px;
+    height:1030px;
+}
+
+#u6_img {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:1587px;
+    height:1030px;
+}
+
+.u7 {
+    position:absolute;
+    left:2px;
+    top:507px;
+    width:1583px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+

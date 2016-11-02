@@ -1,0 +1,606 @@
+body {
+    margin: 0px;
+}
+
+div {
+    background-repeat: no-repeat;
+}
+
+.raw_image {
+    width: 100%;
+    height: 100%;
+}
+
+.preload {
+    display: none;
+}
+#main_container {
+}
+
+.form_sketch {
+    border-color: transparent;
+    background-color: transparent;
+}
+
+.u0_normal {
+    background-image: url('../cashcoupon_files/u0_normal.png');
+}
+
+.u0_container {
+    position:absolute;
+    left:467px;
+    top:320px;
+    width:691px;
+    height:213px;
+}
+
+#u0_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:697px;
+    height:219px;
+}
+
+.u1 {
+    position:absolute;
+    left:2px;
+    top:98px;
+    width:687px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u2_normal {
+    background-image: url('../cashcoupon_files/u2_normal.png');
+}
+
+.u2_container {
+    position:absolute;
+    left:22px;
+    top:110px;
+    width:663px;
+    height:191px;
+}
+
+#u2_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:669px;
+    height:197px;
+}
+
+.u3 {
+    position:absolute;
+    left:2px;
+    top:88px;
+    width:659px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u4_normal {
+    background-image: url('../cashcoupon_files/u4_normal.png');
+}
+
+.u4_container {
+    position:absolute;
+    left:286px;
+    top:217px;
+    width:100px;
+    height:60px;
+}
+
+#u4_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:106px;
+    height:66px;
+}
+
+.u5 {
+    position:absolute;
+    left:2px;
+    top:22px;
+    width:96px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u6_normal {
+    background-image: url('../cashcoupon_files/u6_normal.png');
+}
+
+.u6_container {
+    position:absolute;
+    left:62px;
+    top:207px;
+    width:50px;
+    height:80px;
+}
+
+#u6_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:56px;
+    height:86px;
+}
+
+.u7 {
+    position:absolute;
+    left:2px;
+    top:28px;
+    width:46px;
+    height:24px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u8c0 {
+    background-image: url('../cashcoupon_files/u8c0.png');
+}
+
+.u8c0 {
+    position:absolute;
+    left:108px;
+    top:237px;
+    width:188px;
+    height:20px;
+}
+
+.u9 {
+    position:absolute;
+    left:37px;
+    top:-8px;
+    width:100px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u10_normal {
+    background-image: url('../cashcoupon_files/u4_normal.png');
+}
+
+.u10_container {
+    position:absolute;
+    left:571px;
+    top:217px;
+    width:100px;
+    height:60px;
+}
+
+#u10_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:106px;
+    height:66px;
+}
+
+.u11 {
+    position:absolute;
+    left:2px;
+    top:22px;
+    width:96px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u12c0 {
+    background-image: url('../cashcoupon_files/u12c0.png');
+}
+
+.u12c0 {
+    position:absolute;
+    left:382px;
+    top:237px;
+    width:199px;
+    height:20px;
+}
+
+.u13 {
+    position:absolute;
+    left:42px;
+    top:-8px;
+    width:100px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u14_normal {
+    background-image: url('../cashcoupon_files/u14_normal.png');
+}
+
+.u14_container {
+    position:absolute;
+    left:540px;
+    top:445px;
+    width:162px;
+    height:75px;
+}
+
+#u14_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:168px;
+    height:81px;
+}
+
+.u15 {
+    position:absolute;
+    left:2px;
+    top:30px;
+    width:158px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u16 {
+    position:absolute;
+    left:88px;
+    top:117px;
+    width:571px;
+    height:80px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u17c0 {
+    background-image: url('../cashcoupon_files/u17c0.png');
+}
+
+.u17c0 {
+    position:absolute;
+    left:611px;
+    top:273px;
+    width:20px;
+    height:182px;
+}
+
+.u18 {
+    position:absolute;
+    left:-50px;
+    top:60px;
+    width:100px;
+    height:48px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u19 {
+    position:absolute;
+    left:738px;
+    top:375px;
+    width:420px;
+    height:48px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u20_normal {
+    background-image: url('../cashcoupon_files/u14_normal.png');
+}
+
+.u20_container {
+    position:absolute;
+    left:797px;
+    top:552px;
+    width:162px;
+    height:75px;
+}
+
+#u20_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:168px;
+    height:81px;
+}
+
+.u21 {
+    position:absolute;
+    left:2px;
+    top:30px;
+    width:158px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u22c0 {
+    background-image: url('../cashcoupon_files/u22c0.png');
+}
+
+.u22c0 {
+    position:absolute;
+    left:611px;
+    top:516px;
+    width:20px;
+    height:84px;
+}
+
+.u22c1 {
+    background-image: url('../cashcoupon_files/u22c1.png');
+}
+
+.u22c1 {
+    position:absolute;
+    left:611px;
+    top:580px;
+    width:190px;
+    height:20px;
+}
+
+.u23 {
+    position:absolute;
+    left:3px;
+    top:62px;
+    width:100px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u24 {
+    position:absolute;
+    left:984px;
+    top:558px;
+    width:480px;
+    height:64px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u25_normal {
+    background-image: url('../cashcoupon_files/u14_normal.png');
+}
+
+.u25_container {
+    position:absolute;
+    left:797px;
+    top:684px;
+    width:162px;
+    height:75px;
+}
+
+#u25_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:168px;
+    height:81px;
+}
+
+.u26 {
+    position:absolute;
+    left:2px;
+    top:30px;
+    width:158px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u27 {
+    position:absolute;
+    left:984px;
+    top:690px;
+    width:480px;
+    height:64px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u28_normal {
+    background-image: url('../cashcoupon_files/u14_normal.png');
+}
+
+.u28_container {
+    position:absolute;
+    left:797px;
+    top:822px;
+    width:162px;
+    height:75px;
+}
+
+#u28_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:168px;
+    height:81px;
+}
+
+.u29 {
+    position:absolute;
+    left:2px;
+    top:14px;
+    width:158px;
+    height:48px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u30 {
+    position:absolute;
+    left:984px;
+    top:822px;
+    width:520px;
+    height:80px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u31c0 {
+    background-image: url('../cashcoupon_files/u31c0.png');
+}
+
+.u31c0 {
+    position:absolute;
+    left:611px;
+    top:540px;
+    width:20px;
+    height:192px;
+}
+
+.u31c1 {
+    background-image: url('../cashcoupon_files/u31c1.png');
+}
+
+.u31c1 {
+    position:absolute;
+    left:611px;
+    top:712px;
+    width:190px;
+    height:20px;
+}
+
+.u32 {
+    position:absolute;
+    left:-50px;
+    top:169px;
+    width:100px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u33c0 {
+    background-image: url('../cashcoupon_files/u33c0.png');
+}
+
+.u33c0 {
+    position:absolute;
+    left:611px;
+    top:516px;
+    width:20px;
+    height:354px;
+}
+
+.u33c1 {
+    background-image: url('../cashcoupon_files/u33c1.png');
+}
+
+.u33c1 {
+    position:absolute;
+    left:611px;
+    top:850px;
+    width:190px;
+    height:20px;
+}
+
+.u34 {
+    position:absolute;
+    left:-50px;
+    top:250px;
+    width:100px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u35 {
+    position:absolute;
+    left:62px;
+    top:52px;
+    width:324px;
+    height:24px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
