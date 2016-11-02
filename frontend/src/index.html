@@ -1,73 +1,431 @@
-<html>
-  <head>
-    <title>Welcome to Feathers</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+<!doctype html>
 
-      html, body {
-        font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif';
-        font-weight: 400;
-        font-size: 16px;
-        color: #333;
-      }
+<!--
+    Welcome to the light side of the source, young padawan.
+    One step closer to learn something interesting you are...
+                               ____
+                            _.' :  `._
+                        .-.'`.  ;   .'`.-.
+               __      / : ___\ ;  /___ ; \      __
+             ,'_ ""=-.:__;".-.";: :".-.":__;.-="" _`,
+             :' `.t""=-.. '<@.`;_  ',@:` ..-=""j.' `;
+                  `:-.._J '-.-'L__ `-.-' L_..-;'
+                    "-.__ ;  .-"  "-.  : __.-"
+                        L ' /.======.\ ' J
+                         "-.   "__"   .-"
+                        __.l"-:_JL_;-";.__
+                     .-j/'.;  ;""""  / .'\"-.
+                   .' /:`. "-.:     .-" .';  `.
+                .-"  / ;  "-. "-..-" .-"  :    "-.
+             .+"-.  : :      "-.__.-"      ;-._   \
+             ; \  `.; ;                    : : "+. ;
+             :  ;   ; ;                    : ;  : \:
+             ;  :   ; :                    ;:   ;  :
+            : \  ;  :  ;                  : ;  /  ::
+            ;  ; :   ; :                  ;   :   ;:
+            :  :  ;  :  ;                : :  ;  : ;
+            ;\    :   ; :                ; ;     ; ;
+            : `."-;   :  ;              :  ;    /  ;
+             ;    -:   ; :              ;  : .-"   :
+             :\     \  :  ;            : \.-"      :
+              ;`.    \  ; :            ;.'_..-=  / ;
+              :  "-.  "-:  ;          :/."      .'  :
+               \         \ :          ;/  __        :
+                \       .-`.\        /t-""  ":-+.   :
+                 `.  .-"    `l    __/ /`. :  ; ; \  ;
+                   \   .-" .-"-.-"  .' .'j \  /   ;/
+                    \ / .-"   /.     .'.' ;_:'    ;
+                     :-""-.`./-.'     /    `.___.'
+                           \ `t  ._  /
+                            "-.t-._:'
+-->
 
-      .center-text {
-        text-align: center;
-      }
+<!--
 
-      main {
-        margin-top: 100px;
-        padding: 20px;
-      }
+    So you'd like to know how to use impress.js?
 
-      img.logo {
-        display: block;
-        margin: 0 auto;
-        max-width: 100%;
-        margin-bottom: 30px;
-      }
+    You've made the first, very important step - you're reading the source code.
+    And that's how impress.js presentations are built - with HTML and CSS code.
 
-      h2 {
-        font-size: 2em;
-        font-weight: 100;
-      }
+    Believe me, you need quite decent HTML and CSS skills to be able to use impress.js effectively.
+    More importantly, you need to be a designer. There are no default styles or layouts for impress.js presentations.
 
-      footer {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        padding: 20px;
-      }
+    You need to design and build it by hand.
 
-      footer p {
-        font-weight: 300;
-        font-size: 1.0em;
-      }
+    So...
 
-      a {
-        color: #31D8A0;
-        text-decoration: none;
-      }
+    Would you still like to know how to use impress.js?
 
-      a:hover,
-      a:focus {
-        color: #31D8A0;
-      }
-    </style>
-  </head>
-  <body>
-    <main class="container">
-      <img class="logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAk4AAABkCAMAAABHL0++AAADAFBMVEUAAAD///+AgIBVVVVAQEAzMzNVVVVJSUlAQEA5OTkzMzNGRkZAQEA7Ozs3NzczMzNAQEA8PDw5OTk2NjYzMzM9PT06Ojo3Nzc1NTUzMzM7Ozs5OTk3Nzc1NTUzMzM6Ojo4ODg2NjY1NTUzMzM5OTk3Nzc2NjY0NDQzMzM4ODg3Nzc1NTU0NDQzMzM3Nzc2NjY1NTU0NDQzMzM3Nzc2NjY1NTU0NDQzMzM3Nzc2NjY1NTU0NDQzMzM2NjY1NTU1NTU0NDQzMzM2NjY1NTU1NTU0NDQzMzM2NjY1NTU0NDQ0NDQzMzM2NjY1NTU0NDQ0NDQzMzM2NjY1NTU0NDQ0NDQzMzM1NTU1NTU0NDQ0NDQzMzM1NTU1NTU0NDQ0NDQzMzM1NTU1NTU0NDQ0NDQzMzM1NTU1NTU0NDQzMzMzMzM1NTU0NDQ0NDQzMzMzMzM1NTU0NDQ0NDQzMzMzMzM1NTU0NDQ0NDQzMzMzMzM1NTU0NDQ0NDQzMzMzMzM1NTU0NDQ0NDQzMzMzMzM1NTU0NDQ0NDQzMzMzMzM1NTU0NDQ0NDQzMzMzMzM0NDQ0NDQ0NDQzMzMzMzM0NDQ0NDQ0NDQzMzMzMzM0NDQ0NDQ0NDQzMzMzMzM0NDQ0NDQ0NDQzMzMzMzM0NDQ0NDQ0NDQzMzMzMzM0NDQ0NDQ0NDQzMzMzMzM0NDQ0NDQ0NDQzMzMzMzM0NDQ0NDQ0NDQzMzMzMzM0NDQ0NDQ0NDQzMzMzMzM0NDQ0NDQ0NDQzMzMzMzM0NDQ0NDQ0NDQzMzMzMzM0NDQ0NDQ0NDQzMzMzMzM0NDQ0NDQ0NDQzMzMzMzM0NDQ0NDQzMzMzMzMzMzM0NDQ0NDQzMzMzMzMzMzM0NDQ0NDQzMzMzMzMzMzM0NDQ0NDQzMzMzMzMzMzM0NDQ0NDQzMzMzMzMzMzM0NDQ0NDQzMzMzMzMzMzM0NDQ0NDQzMzMzMzMzMzM0NDQ0NDQzMzMzMzMzMzM0NDQ0NDQzMzMzMzMzMzM0NDQ0NDQzMzMzMzMzMzN4a/VhAAAA/3RSTlMAAQIDBAUGBwgJCgsMDQ4PEBESExQVFhcYGRobHB0eHyAhIiMkJSYnKCkqKywtLi8wMTIzNDU2Nzg5Ojs8PT4/QEFCQ0RFRkdISUpLTE1O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" alt="Feathers Logo">
-      <h2 class="center-text">A minimalist real-time framework for tomorrow's apps.</h2>
-      
-      <footer>
-        <p class="center-text">For more information on Feathers see <a href="http://docs.feathersjs.com" alt="Feathers Documentation" target="blank">docs.feathersjs.com</a>.</p>
-      </footer>
-    </main>
-  </body>
+-->
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=1024" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <title>impress.js | presentation tool based on the power of CSS3 transforms and transitions in modern browsers | by Bartek Szopka @bartaz</title>
+
+  <meta name="description" content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com." />
+  <meta name="author" content="Bartek Szopka" />
+
+
+  <!--
+
+      Impress.js doesn't depend on any external stylesheets. It adds all of the styles it needs for the
+      presentation to work.
+
+      This style below contains styles only for demo presentation. Browse it to see how impress.js
+      classes are used to style presentation steps, or how to apply fallback styles, but I don't want
+      you to use them directly in your presentation.
+
+      Be creative, build your own. We don't really want all impress.js presentations to look the same,
+      do we?
+
+      When creating your own presentation get rid of this file. Start from scratch, it's fun!
+
+  -->
+  <link href="css/main.css" rel="stylesheet" />
+
+  <link rel="shortcut icon" href="favicon.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+</head>
+
+<!--
+
+    Body element is used by impress.js to set some useful class names, that will allow you to detect
+    the support and state of the presentation in CSS or other scripts.
+
+    First very useful class name is `impress-not-supported`. This class means, that browser doesn't
+    support features required by impress.js, so you should apply some fallback styles in your CSS.
+    It's not necessary to add it manually on this element. If the script detects that browser is not
+    good enough it will add this class, but keeping it in HTML means that users without JavaScript
+    will also get fallback styles.
+
+    When impress.js script detects that browser supports all required features, this class name will
+    be removed.
+
+    The class name on body element also depends on currently active presentation step. More details about
+    it can be found later, when `hint` element is being described.
+
+-->
+<body class="impress-not-supported">
+
+<!--
+    For example this fallback message is only visible when there is `impress-not-supported` class on body.
+-->
+<div class="fallback-message">
+  <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+  <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<!--
+
+    Now that's the core element used by impress.js.
+
+    That's the wrapper for your presentation steps. In this element all the impress.js magic happens.
+    It doesn't have to be a `<div>`. Only `id` is important here as that's how the script find it.
+
+    You probably won't need it now, but there are some configuration options that can be set on this element.
+
+    To change the duration of the transition between slides use `data-transition-duration="2000"` giving it
+    a number of ms. It defaults to 1000 (1s).
+
+    You can also control the perspective with `data-perspective="500"` giving it a number of pixels.
+    It defaults to 1000. You can set it to 0 if you don't want any 3D effects.
+    If you are willing to change this value make sure you understand how CSS perspective works:
+    https://developer.mozilla.org/en/CSS/perspective
+
+    But as I said, you won't need it for now, so don't worry - there are some simple but interesting things
+    right around the corner of this tag ;)
+
+-->
+<div id="impress">
+
+  <!--
+
+      Here is where interesting thing start to happen.
+
+      Each step of the presentation should be an element inside the `#impress` with a class name
+      of `step`. These step elements are positioned, rotated and scaled by impress.js, and
+      the 'camera' shows them on each step of the presentation.
+
+      Positioning information is passed through data attributes.
+
+      In the example below we only specify x and y position of the step element with `data-x="-1000"`
+      and `data-y="-1500"` attributes. This means that **the center** of the element (yes, the center)
+      will be positioned in point x = -1000px and y = -1500px of the presentation 'canvas'.
+
+      It will not be rotated or scaled.
+
+  -->
+  <div id="bored" class="step slide" data-x="-1000" data-y="-1500">
+    <q> 产品文档PRD与原型的标准 </q>
+  </div>
+
+  <!--
+
+      The `id` attribute of the step element is used to identify it in the URL, but it's optional.
+      If it is not defined, it will get a default value of `step-N` where N is a number of slide.
+
+      So in the example below it'll be `step-2`.
+
+      The hash part of the url when this step is active will be `#/step-2`.
+
+      You can also use `#step-2` in a link, to point directly to this particular step.
+
+      Please note, that while `#/step-2` (with slash) would also work in a link it's not recommended.
+      Using classic `id`-based links like `#step-2` makes these links usable also in fallback mode.
+
+  -->
+  <div class="step slide" data-x="0" data-y="-1500">
+    <q>Don’t you think that presentations given <strong>in modern browsers</strong> shouldn’t <strong>copy the limits</strong> of ‘classic’ slide decks?</q>
+  </div>
+
+  <div class="step slide" data-x="1000" data-y="-1500">
+    <q>Would you like to <strong>impress your audience</strong> with <strong>stunning visualization</strong> of your talk?</q>
+  </div>
+
+  <!--
+
+      This is an example of step element being scaled.
+
+      Again, we use a `data-` attribute, this time it's `data-scale="4"`, so it means that this
+      element will be 4 times larger than the others.
+      From presentation and transitions point of view it means, that it will have to be scaled
+      down (4 times) to make it back to its correct size.
+
+  -->
+  <div id="title" class="step" data-x="0" data-y="0" data-scale="4">
+    <span class="try">then you should try</span>
+    <h1>impress.js<sup>*</sup></h1>
+    <span class="footnote"><sup>*</sup> no rhyme intended</span>
+  </div>
+
+  <!--
+
+      This element introduces rotation.
+
+      Notation shouldn't be a surprise. We use `data-rotate="90"` attribute, meaning that this
+      element should be rotated by 90 degrees clockwise.
+
+  -->
+  <div id="its" class="step" data-x="850" data-y="3000" data-rotate="90" data-scale="5">
+    <p>It’s a <strong>presentation tool</strong> <br/>
+      inspired by the idea behind <a href="http://prezi.com">prezi.com</a> <br/>
+      and based on the <strong>power of CSS3 transforms and transitions</strong> in modern browsers.</p>
+  </div>
+
+  <div id="big" class="step" data-x="3500" data-y="2100" data-rotate="180" data-scale="6">
+    <p>visualize your <b>big</b> <span class="thoughts">thoughts</span></p>
+  </div>
+
+  <!--
+
+      And now it gets really exciting! We move into third dimension!
+
+      Along with `data-x` and `data-y`, you can define the position on third (Z) axis, with
+      `data-z`. In the example below we use `data-z="-3000"` meaning that element should be
+      positioned far away from us (by 3000px).
+
+  -->
+  <div id="tiny" class="step" data-x="2825" data-y="2325" data-z="-3000" data-rotate="300" data-scale="1">
+    <p>and <b>tiny</b> ideas</p>
+  </div>
+
+  <!--
+
+      This step here doesn't introduce anything new when it comes to data attributes, but you
+      should notice in the demo that some words of this text are being animated.
+      It's a very basic CSS transition that is applied to the elements when this step element is
+      reached.
+
+      At the very beginning of the presentation all step elements are given the class of `future`.
+      It means that they haven't been visited yet.
+
+      When the presentation moves to given step `future` is changed to `present` class name.
+      That's how animation on this step works - text moves when the step has `present` class.
+
+      Finally when the step is left the `present` class is removed from the element and `past`
+      class is added.
+
+      So basically every step element has one of three classes: `future`, `present` and `past`.
+      Only one current step has the `present` class.
+
+  -->
+  <div id="ing" class="step" data-x="3500" data-y="-850" data-rotate="270" data-scale="6">
+    <p>by <b class="positioning">positioning</b>, <b class="rotating">rotating</b> and <b class="scaling">scaling</b> them on an infinite canvas</p>
+  </div>
+
+  <div id="imagination" class="step" data-x="6700" data-y="-300" data-scale="6">
+    <p>the only <b>limit</b> is your <b class="imagination">imagination</b></p>
+  </div>
+
+  <div id="source" class="step" data-x="6300" data-y="2000" data-rotate="20" data-scale="4">
+    <p>want to know more?</p>
+    <q><a href="http://github.com/bartaz/impress.js">use the source</a>, Luke!</q>
+  </div>
+
+  <div id="one-more-thing" class="step" data-x="6000" data-y="4000" data-scale="2">
+    <p>one more thing...</p>
+  </div>
+
+  <!--
+
+      And the last one shows full power and flexibility of impress.js.
+
+      You can not only position element in 3D, but also rotate it around any axis.
+      So this one here will get rotated by -40 degrees (40 degrees anticlockwise) around X axis and
+      10 degrees (clockwise) around Y axis.
+
+      You can of course rotate it around Z axis with `data-rotate-z` - it has exactly the same effect
+      as `data-rotate` (these two are basically aliases).
+
+  -->
+  <div id="its-in-3d" class="step" data-x="6200" data-y="4300" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2">
+    <p><span class="have">have</span> <span class="you">you</span> <span class="noticed">noticed</span> <span class="its">it’s</span> <span class="in">in</span> <b>3D<sup>*</sup></b>?</p>
+    <span class="footnote">* beat that, prezi ;)</span>
+  </div>
+
+  <!--
+
+      So to summarize of all the possible attributes used to position presentation steps, we have:
+
+      * `data-x`, `data-y`, `data-z` - they define the position of **the center** of step element on
+          the canvas in pixels; their default value is 0;
+      * `data-rotate-x`, `data-rotate-y`, 'data-rotate-z`, `data-rotate` - they define the rotation of
+          the element around given axis in degrees; their default value is 0; `data-rotate` and `data-rotate-z`
+          are exactly the same;
+      * `data-scale` - defines the scale of step element; default value is 1
+
+      These values are used by impress.js in CSS transformation functions, so for more information consult
+      CSS transfrom docs: https://developer.mozilla.org/en/CSS/transform
+
+  -->
+  <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10">
+  </div>
+
+</div>
+
+<!--
+
+    Hint is not related to impress.js in any way.
+
+    But it can show you how to use impress.js features in creative way.
+
+    When the presentation step is shown (selected) its element gets the class of "active" and the body element
+    gets the class based on active step id `impress-on-ID` (where ID is the step's id)... It may not be
+    so clear because of all these "ids" in previous sentence, so for example when the first step (the one with
+    the id of `bored`) is active, body element gets a class of `impress-on-bored`.
+
+    This class is used by this hint below. Check CSS file to see how it's shown with delayed CSS animation when
+    the first step of presentation is visible for a couple of seconds.
+
+    ...
+
+    And when it comes to this piece of JavaScript below ... kids, don't do this at home ;)
+    It's just a quick and dirty workaround to get different hint text for touch devices.
+    In a real world it should be at least placed in separate JS file ... and the touch content should be
+    probably just hidden somewhere in HTML - not hard-coded in the script.
+
+    Just sayin' ;)
+
+-->
+<div class="hint">
+  <p>Use a spacebar or arrow keys to navigate</p>
+</div>
+<script>
+  if ("ontouchstart" in document.documentElement) {
+    document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+  }
+</script>
+
+<!--
+
+    Last, but not least.
+
+    To make all described above really work, you need to include impress.js in the page.
+    I strongly encourage to minify it first.
+
+    In here I just include full source of the script to make it more readable.
+
+    You also need to call a `impress().init()` function to initialize impress.js presentation.
+    And you should do it in the end of your document. Not only because it's a good practice, but also
+    because it should be done when the whole document is ready.
+    Of course you can wrap it in any kind of "DOM ready" event, but I was too lazy to do so ;)
+
+-->
+<script src="js/impress.js"></script>
+<script>impress().init();</script>
+
+<!--
+
+    The `impress()` function also gives you access to the API that controls the presentation.
+
+    Just store the result of the call:
+
+        var api = impress();
+
+    and you will get three functions you can call:
+
+        `api.init()` - initializes the presentation,
+        `api.next()` - moves to next step of the presentation,
+        `api.prev()` - moves to previous step of the presentation,
+        `api.goto( stepIndex | stepElementId | stepElement, [duration] )` - moves the presentation to the step given by its index number
+                id or the DOM element; second parameter can be used to define duration of the transition in ms,
+                but it's optional - if not provided default transition duration for the presentation will be used.
+
+    You can also simply call `impress()` again to get the API, so `impress().next()` is also allowed.
+    Don't worry, it wont initialize the presentation again.
+
+    For some example uses of this API check the last part of the source of impress.js where the API
+    is used in event handlers.
+
+-->
+
+</body>
 </html>
+
+<!--
+
+    Now you know more or less everything you need to build your first impress.js presentation, but before
+    you start...
+
+    Oh, you've already cloned the code from GitHub?
+
+    You have it open in text editor?
+
+    Stop right there!
+
+    That's not how you create awesome presentations. This is only a code. Implementation of the idea that
+    first needs to grow in your mind.
+
+    So if you want to build great presentation take a pencil and piece of paper. And turn off the computer.
+
+    Sketch, draw and write. Brainstorm your ideas on a paper. Try to build a mind-map of what you'd like
+    to present. It will get you closer and closer to the layout you'll build later with impress.js.
+
+    Get back to the code only when you have your presentation ready on a paper. It doesn't make sense to do
+    it earlier, because you'll only waste your time fighting with positioning of useless points.
+
+    If you think I'm crazy, please put your hands on a book called "Presentation Zen". It's all about
+    creating awesome and engaging presentations.
+
+    Think about it. 'Cause impress.js may not help you, if you have nothing interesting to say.
+
+-->
+
+<!--
+
+    Are you still reading this?
+
+    For real?
+
+    I'm impressed! Feel free to let me know that you got that far (I'm @bartaz on Twitter), 'cause I'd like
+    to congratulate you personally :)
+
+    But you don't have to do it now. Take my advice and take some time off. Make yourself a cup of coffee, tea,
+    or anything you like to drink. And raise a glass for me ;)
+
+    Cheers!
+
+-->
