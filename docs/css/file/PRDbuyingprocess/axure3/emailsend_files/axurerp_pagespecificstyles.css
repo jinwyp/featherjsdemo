@@ -1,0 +1,514 @@
+body {
+    margin: 0px;
+}
+
+div {
+    background-repeat: no-repeat;
+}
+
+.raw_image {
+    width: 100%;
+    height: 100%;
+}
+
+.preload {
+    display: none;
+}
+#main_container {
+}
+
+.form_sketch {
+    border-color: transparent;
+    background-color: transparent;
+}
+
+.u0_normal {
+    background-image: url('../emailsend_files/u0_normal.png');
+}
+
+.u0_container {
+    position:absolute;
+    left:269px;
+    top:322px;
+    width:200px;
+    height:100px;
+}
+
+#u0_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:206px;
+    height:106px;
+}
+
+.u1 {
+    position:absolute;
+    left:2px;
+    top:10px;
+    width:196px;
+    height:80px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u2_normal {
+    background-image: url('../emailsend_files/u2_normal.png');
+}
+
+.u2_container {
+    position:absolute;
+    left:42px;
+    top:332px;
+    width:50px;
+    height:80px;
+}
+
+#u2_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:56px;
+    height:86px;
+}
+
+.u3 {
+    position:absolute;
+    left:2px;
+    top:32px;
+    width:46px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u4c0 {
+    background-image: url('../emailsend_files/u4c0.png');
+}
+
+.u4c0 {
+    position:absolute;
+    left:88px;
+    top:362px;
+    width:191px;
+    height:20px;
+}
+
+.u5 {
+    position:absolute;
+    left:38px;
+    top:-8px;
+    width:100px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u6_normal {
+    background-image: url('../emailsend_files/u6_normal.png');
+}
+
+.u6_container {
+    position:absolute;
+    left:593px;
+    top:308px;
+    width:192px;
+    height:127px;
+}
+
+#u6_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:198px;
+    height:133px;
+}
+
+.u7 {
+    position:absolute;
+    left:2px;
+    top:48px;
+    width:188px;
+    height:32px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u8c0 {
+    background-image: url('../emailsend_files/u8c0.png');
+}
+
+.u8c0 {
+    position:absolute;
+    left:465px;
+    top:362px;
+    width:138px;
+    height:20px;
+}
+
+.u9 {
+    position:absolute;
+    left:12px;
+    top:-8px;
+    width:100px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u10_normal {
+    background-image: url('../emailsend_files/u0_normal.png');
+}
+
+.u10_container {
+    position:absolute;
+    left:893px;
+    top:82px;
+    width:200px;
+    height:100px;
+}
+
+#u10_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:206px;
+    height:106px;
+}
+
+.u11 {
+    position:absolute;
+    left:2px;
+    top:18px;
+    width:196px;
+    height:64px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u12c0 {
+    background-image: url('../emailsend_files/u12c0.png');
+}
+
+.u12c0 {
+    position:absolute;
+    left:679px;
+    top:122px;
+    width:20px;
+    height:190px;
+}
+
+.u12c1 {
+    background-image: url('../emailsend_files/u12c1.png');
+}
+
+.u12c1 {
+    position:absolute;
+    left:679px;
+    top:122px;
+    width:218px;
+    height:20px;
+}
+
+.u13 {
+    position:absolute;
+    left:-36px;
+    top:-8px;
+    width:100px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u14_normal {
+    background-image: url('../emailsend_files/u0_normal.png');
+}
+
+.u14_container {
+    position:absolute;
+    left:893px;
+    top:583px;
+    width:200px;
+    height:100px;
+}
+
+#u14_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:206px;
+    height:106px;
+}
+
+.u15 {
+    position:absolute;
+    left:2px;
+    top:26px;
+    width:196px;
+    height:48px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u16c0 {
+    background-image: url('../emailsend_files/u16c0.png');
+}
+
+.u16c0 {
+    position:absolute;
+    left:679px;
+    top:431px;
+    width:20px;
+    height:212px;
+}
+
+.u16c1 {
+    background-image: url('../emailsend_files/u16c1.png');
+}
+
+.u16c1 {
+    position:absolute;
+    left:679px;
+    top:623px;
+    width:218px;
+    height:20px;
+}
+
+.u17 {
+    position:absolute;
+    left:-47px;
+    top:190px;
+    width:100px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u18_normal {
+    background-image: url('../emailsend_files/u0_normal.png');
+}
+
+.u18_container {
+    position:absolute;
+    left:1306px;
+    top:82px;
+    width:200px;
+    height:100px;
+}
+
+#u18_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:206px;
+    height:106px;
+}
+
+.u19 {
+    position:absolute;
+    left:2px;
+    top:10px;
+    width:196px;
+    height:80px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u20c0 {
+    background-image: url('../emailsend_files/u20c0.png');
+}
+
+.u20c0 {
+    position:absolute;
+    left:1089px;
+    top:122px;
+    width:227px;
+    height:20px;
+}
+
+.u21 {
+    position:absolute;
+    left:56px;
+    top:-16px;
+    width:100px;
+    height:32px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u22_normal {
+    background-image: url('../emailsend_files/u0_normal.png');
+}
+
+.u22_container {
+    position:absolute;
+    left:1657px;
+    top:583px;
+    width:200px;
+    height:100px;
+}
+
+#u22_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:206px;
+    height:106px;
+}
+
+.u23 {
+    position:absolute;
+    left:2px;
+    top:10px;
+    width:196px;
+    height:80px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u24c0 {
+    background-image: url('../emailsend_files/u24c0.png');
+}
+
+.u24c0 {
+    position:absolute;
+    left:1502px;
+    top:122px;
+    width:265px;
+    height:20px;
+}
+
+.u24c1 {
+    background-image: url('../emailsend_files/u24c1.png');
+}
+
+.u24c1 {
+    position:absolute;
+    left:1747px;
+    top:122px;
+    width:20px;
+    height:465px;
+}
+
+.u25 {
+    position:absolute;
+    left:201px;
+    top:92px;
+    width:100px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u26c0 {
+    background-image: url('../emailsend_files/u26c0.png');
+}
+
+.u26c0 {
+    position:absolute;
+    left:1089px;
+    top:623px;
+    width:578px;
+    height:20px;
+}
+
+.u27 {
+    position:absolute;
+    left:232px;
+    top:-8px;
+    width:100px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u28_normal {
+    background-image: url('../emailsend_files/u28_normal.png');
+}
+
+.u28_container {
+    position:absolute;
+    left:50px;
+    top:769px;
+    width:775px;
+    height:392px;
+}
+
+#u28_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:781px;
+    height:398px;
+}
+
+.u29 {
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:771px;
+    height:288px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
