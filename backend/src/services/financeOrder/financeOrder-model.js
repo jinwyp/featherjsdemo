@@ -34,7 +34,8 @@ const financeOrderSchema = new Schema({
 
   lifeTimeDay: { type: Number, required: false },
 
-  paymentList: [{ type: Schema.Types.ObjectId, ref: 'paymentOrder' }]
+  paymentList: [{ type: Schema.Types.ObjectId, ref: 'paymentOrder' }],
+  contactList: [{ type: Schema.Types.ObjectId, ref: 'contact' }]
 });
 
 const financeOrderModel = mongoose.model('financeOrder', financeOrderSchema);
