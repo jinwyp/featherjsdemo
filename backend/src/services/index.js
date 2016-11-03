@@ -1,4 +1,5 @@
 'use strict';
+const contact = require('./contact');
 const paymentorder = require('./paymentorder');
 const financeOrder = require('./financeOrder');
 const authentication = require('./authentication');
@@ -14,4 +15,5 @@ module.exports = function() {
   app.configure(user);
   app.configure(financeOrder);
   app.configure(paymentorder);
+  app.configure(contact);
 };
