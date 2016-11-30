@@ -11,7 +11,10 @@ module.exports = function (app) {
             mobilePhone    : body.mobile,
             password : body.password
         })
-        .then(user => res.redirect('/login.html'))
+        .then(user => {
+            //res.redirect('/login.html')
+            res.send(user);
+        })
         // On errors, just call our error middleware
         .catch(next);
     };
