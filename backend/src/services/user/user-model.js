@@ -23,7 +23,6 @@ const userSchema = new Schema({
 
     companyName : {type : String, required : false}
 
-
 });
 
 const userModel = mongoose.model('user', userSchema);

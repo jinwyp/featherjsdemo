@@ -58,7 +58,7 @@ const app = feathers()
     }));
 
 // Get the Feathers services we want to use
-const userService = app.service('users');
+const userService = app.service('/api/users');
 const orderService = app.service('financeOrders');
 
 

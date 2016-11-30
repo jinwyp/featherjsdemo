@@ -5,7 +5,7 @@ module.exports = function (app) {
         const body = req.body;
 
         // Get the user service and `create` a new user
-        app.service('users').create({
+        app.service('/api/users').create({
             username    : body.username,
             email    : body.email,
             mobilePhone    : body.mobile,

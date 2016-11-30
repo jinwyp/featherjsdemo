@@ -1,6 +1,6 @@
 'use strict';
 
-const userSignup = require('./user-signup');
+const userSignup = require('../controllers/user-signup');
 
 const handler  = require('feathers-errors/handler');
 const notFound = require('./not-found-handler');
