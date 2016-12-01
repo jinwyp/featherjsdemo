@@ -4,7 +4,7 @@ const restrictToRequestUser = require('./restrict-to-request-user');
 const process = require('./process');
 
 const globalHooks = require('../../../hooks');
-const hooks       = require('feathers-hooks');
+const hooks       = require('feathers-hooks-common');
 const auth        = require('feathers-authentication').hooks;
 
 const populateRequestUser = hooks.populate('requestUserBy', {

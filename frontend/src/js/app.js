@@ -87,7 +87,12 @@ $('.logout').on('click', function() {
 app.authenticate().then(() => {
     // Find the latest 10 messages. They will come with the newest first
     // which is why we have to reverse before adding them
-    orderService.find().then(page => page.data.reverse().forEach(addMessage));
+    orderService.find({
+        query: {
+            $sort: { createdAt: -1 },
+            $limit: 25
+        }
+    }).then(page => page.data.reverse().forEach(addMessage));
 
     // Listen to created events and add the new message in real-time
     orderService.on('created', addMessage);

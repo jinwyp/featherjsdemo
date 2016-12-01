@@ -30,6 +30,7 @@
     "feathers-configuration": "^0.3.3",
     "feathers-errors": "^2.4.0",
     "feathers-hooks": "^1.6.1",
+    "feathers-hooks-common": "^2.0.2",
     "feathers-mongoose": "^3.5.3",
     "feathers-rest": "^1.5.1",
     "feathers-socketio": "^1.4.1",
