@@ -8,6 +8,10 @@
       "secret": "Iub8wbLGd6jN+Tptx+FFiBQtE7e+TJE4+YFFNsR3/WqH+cI7MF8WPO2nRTwB7tBEflxbki7d4Yet/tAWzAWJeA=="
     },
     "local": {},
-    "successRedirect": "/chat.html"
+    "successRedirect": "/chat.html",
+    "localEndpoint": "/api/auth/login",
+    "tokenEndpoint": "/api/auth/token",
+    "userEndpoint" : "/api/users",
+    "header" : "X-Authorization"
   }
 }

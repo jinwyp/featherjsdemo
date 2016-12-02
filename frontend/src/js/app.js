@@ -84,7 +84,9 @@ $('.logout').on('click', function() {
 
 
 
-app.authenticate().then(() => {
+app.authenticate().then((result) => {
+    console.log('Authenticated!', result);
+    console.log('Your JWT is: ' + app.get('token'));
     // Find the latest 10 messages. They will come with the newest first
     // which is why we have to reverse before adding them
     orderService.find({
@@ -108,4 +110,7 @@ app.authenticate().then(() => {
     userService.on('created', addUser);
 })
 // On errors we just redirect back to the login page
-.catch(error => window.location.href = '/login.html');
+.catch(error => {
+    console.log(error)
+    //window.location.href = '/login.html'
+});

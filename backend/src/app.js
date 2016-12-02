@@ -17,6 +17,7 @@ const middleware    = require('./middleware');
 const services      = require('./services');
 
 const restFormatter = require('./middleware/service-formatter');
+const errorFormatter = require('./middleware/error-formatter');
 
 
 const app = feathers();
@@ -38,6 +39,8 @@ app.use(compress())
     .configure(rest(restFormatter))
     .configure(socketio())
     .configure(services)
-    .configure(middleware);
+    .configure(middleware)
+    //.use(errorFormatter)
+;
 
 module.exports = app;
