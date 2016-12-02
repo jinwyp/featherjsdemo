@@ -21,7 +21,9 @@ const userSchema = new Schema({
 
     role : {type : String, required : false},
 
-    companyName : {type : String, required : false}
+    companyName : {type : String, required : false},
+
+    belongToUser : {type : String, required : false}
 
 });
 
