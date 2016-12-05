@@ -23,7 +23,7 @@ const userSchema = new Schema({
 
     companyName : {type : String, required : false},
 
-    belongToUser : {type : String, required : false}
+    belongToUser : {type: Schema.Types.ObjectId, required : false}
 
 });
 

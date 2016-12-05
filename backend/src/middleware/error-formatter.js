@@ -3,14 +3,13 @@
  */
 
 
-const error = require('feathers-errors/handler');
+
 
 // Just like Express your error middleware needs to be
 // set up last in your middleware chain.
 
 
-module.exports = error({
-    html: function(error, req, res, next) {
+module.exports = function(error, req, res, next) {
 
         var result = {
             "success" : false,
@@ -18,18 +17,19 @@ module.exports = error({
                 "code": error.code,
                 "name": error.name,
                 "field": error.errors,
-                "message": error.message
+                "message": error.message,
+                "stack": error.stack
             },
             "meta": null,
             "data": null
         };
 
-        // render your error view with the error object
-        res.send(result);
-    }
-});
+        if (process.env.NODE_ENV === 'production') {
+            delete result.error.stack;
+        }
 
+        res.set('Content-Type', 'application/json');
+        res.json(result)
 
-process.on('unhandledRejection', (reason, p) => {
-    console.log("Unhandled Rejection at: Promise ", p, " reason: ", reason);
-});
+};
+

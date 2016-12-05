@@ -17,6 +17,7 @@ module.exports = function (options) {
         const remark = hook.data.remark.substring(0, 400).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');  // Do some basic HTML escaping
 
         console.log("------- hook data", hook.data);
+        console.log("------- hook payload", hook.params.payload);
         hook.data = {
             remark      : remark,
             requestUser : user._id,

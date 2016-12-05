@@ -15,8 +15,8 @@ const financeOrderSchema = new Schema({
 
     requestTime : {type : Date, required : true},
     approveTime : {type : Date, required : true},
-    requestUser : {type : String, required : true},
-    approveUser : {type : String, required : false},
+    requestUser : {type: Schema.Types.ObjectId, required : false},
+    approveUser : {type: Schema.Types.ObjectId, required : false},
 
     type           : {type : String, required : true},
     orderNo        : {type : String, required : true},
