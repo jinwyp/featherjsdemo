@@ -1,6 +1,5 @@
 'use strict';
 
-const userSignup = require('../controllers/user-signup');
 
 const handler  = require('feathers-errors/handler');
 const notFound = require('./not-found-handler');
@@ -13,10 +12,6 @@ module.exports = function () {
     // just like Express the order matters, so error
     // handling middleware should go last.
     const app = this;
-
-
-
-    app.post('/user/signup', userSignup(app));
 
 
     app.use(notFound());

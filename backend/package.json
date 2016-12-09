@@ -22,11 +22,12 @@
     "mocha": "mocha test/ --recursive"
   },
   "dependencies": {
+    "bcryptjs": "^2.3.0",
     "body-parser": "^1.15.2",
     "compression": "^1.6.2",
     "cors": "^2.8.1",
     "feathers": "^2.0.2",
-    "feathers-authentication": "^0.7.11",
+    "feathers-authentication": "^0.7.12",
     "feathers-configuration": "^0.3.3",
     "feathers-errors": "^2.4.0",
     "feathers-hooks": "^1.6.1",

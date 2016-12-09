@@ -16,7 +16,7 @@ module.exports = function(req, res) {
             "count": res.data.total < res.data.limit ? res.data.total : res.data.limit,
             "offset": res.data.skip,
             "numberPerPage" : res.data.limit,
-            "page": Math.floor(res.data.skip/res.data.limit),
+            "page": Math.floor(res.data.skip/res.data.limit) + 1,
             "total": res.data.total
         };
     }else if (typeof res.data.code === 'undefined' && typeof res.data.name === 'undefined'){

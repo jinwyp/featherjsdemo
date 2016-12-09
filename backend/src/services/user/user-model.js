@@ -15,15 +15,14 @@ const userSchema = new Schema({
     email       : {type : String, required : true, unique : true},
     username    : {type : String, required : true, unique : true},
     mobilePhone : {type : String, required : true, unique : true},
-    password    : {type : String, required : true},
+    password    : {type : String, required : false, default:"$2a$10$umZG.q.5Co02rBd2yzcVZeZYb2cGX6IN1Yesyny6scXmpGxfMgEwG"},
+
+    companyName : {type : String, required : true},
+    role : {type : String, required : true},
+    belongToUser : {type: Schema.Types.ObjectId, required : false},
 
     avatar    : {type : String, required : false},
 
-    role : {type : String, required : false},
-
-    companyName : {type : String, required : false},
-
-    belongToUser : {type: Schema.Types.ObjectId, required : false}
 
 });
 
