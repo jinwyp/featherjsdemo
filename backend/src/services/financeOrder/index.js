@@ -10,16 +10,16 @@ module.exports = function() {
   const options = {
     Model: financeOrder,
     paginate: {
-      default: 5,
-      max: 25
+      default: 10,
+      max: 1000
     }
   };
 
   // Initialize our service with any options it requires
-  app.use('/financeOrders', service(options));
+  app.use('/api/financeorders', service(options));
 
   // Get our initialize service to that we can bind hooks
-  const financeOrderService = app.service('/financeOrders');
+  const financeOrderService = app.service('/api/financeorders');
 
   // Set up our before hooks
   financeOrderService.before(hooks.before);

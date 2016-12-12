@@ -11,3 +11,15 @@ exports.myHook = function (options) {
         console.log('My custom global hook ran. Feathers is awesome!');
     };
 };
+
+
+exports.logHook = function (options) {
+    return function (hook) {
+        console.log("------- hook provider: %s, method: %s, type: %s, id: %s ", hook.params.provider, hook.method, hook.type, hook.id);
+        console.log("------- hook params payload : ",   hook.params.payload);
+        console.log("------- hook params user : ",  hook.params.user); // will be `1` for GET /users/1/messages
+        console.log("------- hook params query : ", hook.params.query);
+        console.log("------- hook body : ", hook.data);
+        console.log("------- hook app : ", hook.app);
+    }
+};
