@@ -1,29 +1,35 @@
 'use strict';
 
-const service = require('feathers-mongoose');
+const service      = require('feathers-mongoose');
 const financeOrder = require('./financeOrder-model');
-const hooks = require('./hooks');
+const hooks        = require('./hooks');
 
-module.exports = function() {
-  const app = this;
+const orderController = require('./controllers/order.js');
 
-  const options = {
-    Model: financeOrder,
-    paginate: {
-      default: 10,
-      max: 1000
-    }
-  };
 
-  // Initialize our service with any options it requires
-  app.use('/api/financeorders', service(options));
+module.exports = function () {
+    const app = this;
 
-  // Get our initialize service to that we can bind hooks
-  const financeOrderService = app.service('/api/financeorders');
+    const options = {
+        Model    : financeOrder,
+        paginate : {
+            default : 10,
+            max     : 1000
+        }
+    };
 
-  // Set up our before hooks
-  financeOrderService.before(hooks.before);
+    // Initialize our service with any options it requires
+    app.use('/api/financeorders', service(options));
 
-  // Set up our after hooks
-  financeOrderService.after(hooks.after);
+    // Get our initialize service to that we can bind hooks
+    const financeOrderService = app.service('/api/financeorders');
+
+    // Set up our before hooks
+    financeOrderService.before(hooks.before);
+
+    // Set up our after hooks
+    financeOrderService.after(hooks.after);
+
+
+    app.post('/api/financeorders/audit', orderController.goNextStep(app));
 };

@@ -25,13 +25,16 @@ exports.before = {
     find   : [],
     get    : [],
     create : [process()],
-    update : [hooks.remove('financerUserId'), restrictToRequestUser()],
-    patch  : [hooks.remove('financerUserId'), restrictToRequestUser()],
+    update : [ restrictToRequestUser()],
+    patch  : [],
     remove : []
 };
 
 exports.after = {
-    all    : [populateFinancerUser],
+    all    : [
+        populateFinancerUser,
+        hooks.remove('financerUserId')
+    ],
     find   : [],
     get    : [],
     create : [],
