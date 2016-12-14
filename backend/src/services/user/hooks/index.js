@@ -5,9 +5,6 @@ const hooks       = require('feathers-hooks');
 const auth        = require('feathers-authentication').hooks;
 
 
-
-
-
 const restrictToRolesOptons = {
     roles      : ['systemAdmin'],
     fieldName  : 'role',

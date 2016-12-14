@@ -25,7 +25,7 @@ exports.before = {
     find   : [],
     get    : [],
     create : [process()],
-    update : [ restrictToRequestUser()],
+    update : [],
     patch  : [],
     remove : []
 };

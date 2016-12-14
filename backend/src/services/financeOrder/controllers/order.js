@@ -18,10 +18,10 @@ const userRolesAll = [
 ];
 
 const statusList = [
-    {name : 'financingStep11', displayName:'等待融资方,港口上传合同及单据,等待贸易商选择监管方'},
+    {name : 'financingStep11', displayName:'等待融资方上传合同及单据,等待贸易商选择港口和监管方'},
     {name : 'financingStep12', displayName:'融资方完成上传合同,待贸易商审核'},
-    {name : 'financingStep13', displayName:'港口完成上传合同,待贸易商审核'},
-    {name : 'financingStep14', displayName:'贸易商已选择监管方,待监管上传合同及单据'},
+    {name : 'financingStep13', displayName:'贸易商已选择港口和监管方,待港口和监管上传合同及单据'},
+    {name : 'financingStep14', displayName:'港口完成上传合同,待贸易商审核'},
     {name : 'financingStep15', displayName:'监管方完成上传合同,待贸易商审核'},
     {name : 'financingStep51', displayName:'贸易商审核不通过，流程结束'},
     {name : 'financingStep16', displayName:'贸易商审核通过,待贸易商财务放款建议'},
@@ -48,14 +48,31 @@ statusList.forEach(function (item, index){
 
 
 const actionList = [
-    {statusAt:"financingStep11", operator : 'financer', name : 'a11FinishedUpload', displayName : '完成上传资料'},
-    {statusAt:"financingStep11", operator : 'harbor', name : 'a12FinishedUpload', displayName : '完成上传资料'},
-    {statusAt:"financingStep11", operator : 'traders', name : 'a13SelectSupervisor', displayName : '完成选择监管方'},
-    {statusAt:"financingStep14", operator : 'supervisor', name : 'a14FinishedUpload', displayName : '完成上传资料'},
+    {statusAt:"financingStep11", operator : 'financer', name : 'a11FinishedUpload', displayName : '确认完成上传资料并提交'},
+    {statusAt:"financingStep11", operator : 'traders', name : 'a12SelectHarborAndSupervisor', displayName : '完成选择港口和监管方'},
 
-    {statusAt:"financingStep11", operator : 'traders', name : 'a15Approved', displayName : '贸易商审核通过'},
-    {statusAt:"financingStep11", operator : 'traders', name : 'a16NotApproved', displayName : '贸易商审核不通过'},
+    {statusAt:"financingStep13", operator : 'harbor', name : 'a13FinishedUpload', displayName : '确认完成上传资料并提交'},
+    {statusAt:"financingStep13", operator : 'supervisor', name : 'a14FinishedUpload', displayName : '确认完成上传资料并提交'},
+
+    {statusAt:"financingStep12", operator : 'traders', name : 'a15Approved', displayName : '审核通过'},
+    {statusAt:"financingStep12", operator : 'traders', name : 'a16NotApproved', displayName : '审核不通过'},
+
+    {statusAt:"financingStep16", operator : 'tradersAccountant', name : 'a17Approved', displayName : '确认放款'},
+
+    {statusAt:"financingStep17", operator : 'fundProvider', name : 'a18Approved', displayName : '审核通过'},
+    {statusAt:"financingStep17", operator : 'fundProvider', name : 'a19NotApproved', displayName : '审核不通过'},
+
+
+    {statusAt:"financingStep18", operator : 'fundProviderAccountant', name : 'a20Approved', displayName : '确认放款'},
+    {statusAt:"financingStep19", operator : 'fundProviderAccountant', name : 'a21auto', displayName : '自动确认收款'},
+    {statusAt:"financingStep20", operator : 'fundProviderAccountant', name : 'a22auto', displayName : '自动确认收款'},
+
+
+    {statusAt:"financingStep21", operator : 'financer', name : 'a22ReturnMoney', displayName : '确认回款'},
+
+
 ];
+
 
 const actionObject = {};
 
@@ -71,28 +88,26 @@ const changeStep = function (state, action) {
 
     if (state === statusObject.financingStep11) {
         if(action === actionObject.a11FinishedUpload){
-            console.log('----------11111', state)
             state = statusObject.financingStep12
         }
 
-        if(action === actionObject.a12FinishedUpload){
-            console.log('----------22222', state)
+        if(action === actionObject.a12SelectHarborAndSupervisor){
             state = statusObject.financingStep13
-        }
-
-        if(action === actionObject.a13SelectSupervisor){
-            state = statusObject.financingStep14
         }
     }
 
-    if (state === statusObject.financingStep14) {
+    if (state === statusObject.financingStep13) {
+        if(action === actionObject.a13FinishedUpload){
+            state = statusObject.financingStep14
+        }
+
         if(action === actionObject.a14FinishedUpload){
             state = statusObject.financingStep15
         }
     }
 
     // 贸易商审核开始
-    if (state === statusObject.financingStep11) {
+    if (state === statusObject.financingStep12) {
         if(action === actionObject.a15Approved){
             state = statusObject.financingStep16
         }
@@ -101,6 +116,40 @@ const changeStep = function (state, action) {
             state = statusObject.financingStep51
         }
     }
+
+    if (state === statusObject.financingStep16) {
+        if(action === actionObject.a17Approved){
+            state = statusObject.financingStep17
+        }
+    }
+
+    // 资金方审核开始
+    if (state === statusObject.financingStep17) {
+        if(action === actionObject.a18Approved){
+            state = statusObject.financingStep18
+        }
+
+        if(action === actionObject.a19NotApproved){
+            state = statusObject.financingStep52
+        }
+    }
+
+    if (state === statusObject.financingStep18) {
+        if(action === actionObject.a20Approved){
+            state = statusObject.financingStep19
+        }
+    }
+    if (state === statusObject.financingStep19) {
+        if(action === actionObject.a21auto){
+            state = statusObject.financingStep20
+        }
+    }
+    if (state === statusObject.financingStep20) {
+        if(action === actionObject.a22auto){
+            state = statusObject.financingStep21
+        }
+    }
+
 
     console.log('----------', state)
     return state
@@ -127,30 +176,29 @@ exports.goNextStep = function (app) {
 
                     if (order.status === statusObject.financingStep11){
                         if (req.body.operator === 'financer'){
-                            var newStatus = changeStep(order.status, req.body.action);
-                            return orderService.patch(req.body.orderId, {statusChild1Financer: newStatus});
-                        }
-
-                        if (req.body.operator === 'harbor'){
-                            var newStatus = changeStep(order.status, req.body.action);
-                            return orderService.patch(req.body.orderId, {statusChild2Harbor: newStatus});
+                            var tempStatus = changeStep(order.status, req.body.action);
+                            return orderService.patch(req.body.orderId, {statusChild11Financer: tempStatus, status: tempStatus});
                         }
 
                         if (req.body.operator === 'traders'){
-                            var newStatus = changeStep(order.status, req.body.action);
-                            return orderService.patch(req.body.orderId, {statusChild3Supervisor: newStatus});
+                            return orderService.patch(req.body.orderId, {statusChild12Traders: changeStep(order.status, req.body.action)});
+                        }
+
+                    }else if (order.status === statusObject.financingStep13){
+                        if (req.body.operator === 'harbor'){
+                            return orderService.patch(req.body.orderId, {statusChild21Harbor: changeStep(order.status, req.body.action)});
                         }
 
                         if (req.body.operator === 'supervisor'){
-                            var newStatus = changeStep(order.status, req.body.action);
-                            return orderService.patch(req.body.orderId, {statusChild3Supervisor: newStatus});
+                            return orderService.patch(req.body.orderId, {statusChild22Supervisor: changeStep(order.status, req.body.action)});
                         }
-                    }else {
+                    }else{
+
+                        if (order.statusChild11Financer === statusObject.financingStep12 && order.statusChild21Harbor === statusObject.financingStep14 &&  order.statusChild22Supervisor === statusObject.financingStep15 ){
+                            return orderService.patch(req.body.orderId, {status: changeStep(order.status, req.body.action)});
+                        }
 
                     }
-
-
-
 
                 })
                 .then(order2 => {
