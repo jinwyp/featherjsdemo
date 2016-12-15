@@ -69,7 +69,12 @@ const financeOrderSchema = new Schema({
     contactList : [{type : Schema.Types.ObjectId, ref : 'contact'}],
 
 
-
+    auditHistory: [
+        {userId: { type: String }},
+        {status: { type: String }},
+        {action: { type: String }},
+        {updatedAt: { type : Date, default : Date.now }},
+    ]
 
 });
 

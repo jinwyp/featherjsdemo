@@ -216,13 +216,18 @@ exports.goNextStep = function (app) {
         const body = req.body; // {operator : 'financer', orderId : '', action : ''}
 
         console.log(req.headers)
-        // Get the user service and `create` a new user
 
         const orderService = app.service('/api/financeorders');
 
         if (req.body.orderId){
             orderService.get(req.body.orderId)
                 .then(order  => {
+
+                    const history = {
+                        userId: req.headers['X-Authorization-UserId'],
+                        status: '',
+                        action: req.body.action,
+                    };
 
                     if (!order) {
                         throw new errors.BadRequest('没找到该审批融资单');
@@ -232,26 +237,36 @@ exports.goNextStep = function (app) {
                         console.log(11111)
                         if (req.body.operator === 'financer'){
                             var tempStatus = changeStep(order.status, req.body.action);
-                            return orderService.patch(req.body.orderId, {statusChild11Financer: tempStatus, status: tempStatus});
+                            history.status = tempStatus;
+                            order.auditHistory.push(history);
+                            return orderService.patch(req.body.orderId, {statusChild11Financer: tempStatus, status: tempStatus, auditHistory : order.auditHistory});
                         }
 
                         if (req.body.operator === 'traders'){
-                            return orderService.patch(req.body.orderId, {statusChild12Traders: changeStep(order.status, req.body.action)});
+                            history.status = tempStatus;
+                            order.auditHistory.push(history);
+                            return orderService.patch(req.body.orderId, {statusChild12Traders: changeStep(order.status, req.body.action), auditHistory : order.auditHistory});
                         }
 
                     }else if (order.status === statusObject.financingStep13){
                         console.log(2222222)
                         if (req.body.operator === 'harbor'){
-                            return orderService.patch(req.body.orderId, {statusChild21Harbor: changeStep(order.status, req.body.action)});
+                            history.status = tempStatus;
+                            order.auditHistory.push(history);
+                            return orderService.patch(req.body.orderId, {statusChild21Harbor: changeStep(order.status, req.body.action), auditHistory : order.auditHistory});
                         }
 
                         if (req.body.operator === 'supervisor'){
-                            return orderService.patch(req.body.orderId, {statusChild22Supervisor: changeStep(order.status, req.body.action)});
+                            history.status = tempStatus;
+                            order.auditHistory.push(history);
+                            return orderService.patch(req.body.orderId, {statusChild22Supervisor: changeStep(order.status, req.body.action), auditHistory : order.auditHistory});
                         }
                     }else{
                         console.log(33333)
                         if (order.statusChild11Financer === statusObject.financingStep12 && order.statusChild21Harbor === statusObject.financingStep14 &&  order.statusChild22Supervisor === statusObject.financingStep15 ){
-                            return orderService.patch(req.body.orderId, {status: changeStep(order.status, req.body.action)});
+                            history.status = tempStatus;
+                            order.auditHistory.push(history);
+                            return orderService.patch(req.body.orderId, {status: changeStep(order.status, req.body.action), auditHistory : order.auditHistory});
                         }
 
                     }
@@ -261,7 +276,7 @@ exports.goNextStep = function (app) {
                     console.log(order2)
                     res.send({
                         success : true,
-                        data : order2
+                        data : order2 || []
                     });
                 })
                 .catch(next);
