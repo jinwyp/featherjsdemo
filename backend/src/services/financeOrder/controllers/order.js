@@ -32,13 +32,13 @@ const statusList = [
     {name : 'financingStep20', displayName:'贸易商已自动确认收款,贸易商已自动打款给融资方, 待融资方确认收款,银行转账中'},
     {name : 'financingStep21', displayName:'融资方已自动确认收款,融资放款阶段完成,待融资方回款'},
     {name : 'repaymentStep31', displayName:'融资方已回款,待贸易商放货'},
-    {name : 'repaymentStep32', displayName:'贸易商已放货,待港口放货确认'},
-    {name : 'repaymentStep33', displayName:'港口已确认返回货物,融资方部分回款已完成, 待融资方继续回款'},
-    {name : 'repaymentStep34', displayName:'港口已确认返回货物,融资方全部回款已完成, 待贸易商确认回款给资金方'},
+    {name : 'repaymentStep32', displayName:'贸易商已放货, 融资方部分回款已完成, 待港口放货确认'},
+    {name : 'repaymentStep33', displayName:'贸易商已放货, 融资方全部回款已完成, 待港口放货确认'},
+    {name : 'repaymentStep34', displayName:'港口已确认返回货物,融资方部分回款已完成, 待融资方继续回款'},
+    {name : 'repaymentStep35', displayName:'港口已确认返回货物,融资方全部回款已完成, 待贸易商确认回款给资金方'},
     {name : 'repaymentStep53', displayName:'贸易商已扣押货物（处置货权）,融资方未回款, 待贸易商确认回款给资金方'},
-    {name : 'repaymentStep35', displayName:'贸易商已确认回款给资金方,待贸易商财务放款'},
-    {name : 'repaymentStep36', displayName:'贸易商财务已回款给资金方，流程结束'}
-
+    {name : 'repaymentStep36', displayName:'贸易商已确认回款给资金方,待贸易商财务放款'},
+    {name : 'repaymentStep37', displayName:'贸易商财务已回款给资金方，流程结束'}
 ];
 
 const statusObject = {};
@@ -68,9 +68,16 @@ const actionList = [
     {statusAt:"financingStep20", operator : 'fundProviderAccountant', name : 'a22auto', displayName : '自动确认收款'},
 
 
-    {statusAt:"financingStep21", operator : 'financer', name : 'a22ReturnMoney', displayName : '确认回款'},
+    {statusAt:"financingStep21", operator : 'financer', name : 'a31FirstReturnMoney', displayName : '确认回款'},
+    {statusAt:"repaymentStep34", operator : 'financer', name : 'a32SecondReturnMoney', displayName : '确认回款'},
 
+    {statusAt:"repaymentStep31", operator : 'traders', name : 'a32ReturnPortionCargo', displayName : ' 部分回款完成,确认放货'},
+    {statusAt:"repaymentStep31", operator : 'traders', name : 'a33ReturnAllCargo', displayName : '全部回款完成,确认放货'},
+    {statusAt:"repaymentStep32", operator : 'harbor', name : 'a34ConfirmPortionCargo', displayName : ' 部分回款完成,确认返回货物'},
+    {statusAt:"repaymentStep33", operator : 'harbor', name : 'a35ConfirmAllCargo', displayName : '全部回款完成,确认返回货物'},
 
+    {statusAt:"repaymentStep35", operator : 'traders', name : 'a36ReturnMoney', displayName : '确认回款给资金方'},
+    {statusAt:"repaymentStep36", operator : 'tradersAccountant', name : 'a37Approved', displayName : '放款给资金方'},
 ];
 
 
@@ -150,8 +157,54 @@ const changeStep = function (state, action) {
         }
     }
 
+    // 融资方第一次回款开始
+    if (state === statusObject.financingStep21 ) {
+        if(action === actionObject.a31FirstReturnMoney){
+            state = statusObject.repaymentStep31
+        }
+    }
+    // 融资方第二次回款开始
+    if (state === statusObject.repaymentStep34) {
+        if(action === actionObject.a32SecondReturnMoney){
+            state = statusObject.repaymentStep31
+        }
+    }
 
-    console.log('----------', state)
+    // 贸易商判断是否全部回款完成
+    if (state === statusObject.repaymentStep31) {
+        if(action === actionObject.a32ReturnPortionCargo){
+            state = statusObject.repaymentStep32
+        }
+        if(action === actionObject.a33ReturnAllCargo){
+            state = statusObject.repaymentStep33
+        }
+    }
+
+    // 港口判断是否全部回款完成
+    if (state === statusObject.repaymentStep32) {
+        if(action === actionObject.a34ConfirmPortionCargo){
+            state = statusObject.repaymentStep34
+        }
+    }
+    if (state === statusObject.repaymentStep33) {
+        if(action === actionObject.a35ConfirmAllCargo){
+            state = statusObject.repaymentStep35
+        }
+    }
+
+    //  贸易商回款给资金方
+    if (state === statusObject.repaymentStep35) {
+        if(action === actionObject.a36ReturnMoney){
+            state = statusObject.repaymentStep36
+        }
+    }
+    if (state === statusObject.repaymentStep36) {
+        if(action === actionObject.a37Approved){
+            state = statusObject.repaymentStep36
+        }
+    }
+
+    console.log('----------- 当前状态: ', state);
     return state
 
 };
@@ -162,6 +215,7 @@ exports.goNextStep = function (app) {
     return function (req, res, next) {
         const body = req.body; // {operator : 'financer', orderId : '', action : ''}
 
+        console.log(req.headers)
         // Get the user service and `create` a new user
 
         const orderService = app.service('/api/financeorders');
@@ -175,6 +229,7 @@ exports.goNextStep = function (app) {
                     }
 
                     if (order.status === statusObject.financingStep11){
+                        console.log(11111)
                         if (req.body.operator === 'financer'){
                             var tempStatus = changeStep(order.status, req.body.action);
                             return orderService.patch(req.body.orderId, {statusChild11Financer: tempStatus, status: tempStatus});
@@ -185,6 +240,7 @@ exports.goNextStep = function (app) {
                         }
 
                     }else if (order.status === statusObject.financingStep13){
+                        console.log(2222222)
                         if (req.body.operator === 'harbor'){
                             return orderService.patch(req.body.orderId, {statusChild21Harbor: changeStep(order.status, req.body.action)});
                         }
@@ -193,7 +249,7 @@ exports.goNextStep = function (app) {
                             return orderService.patch(req.body.orderId, {statusChild22Supervisor: changeStep(order.status, req.body.action)});
                         }
                     }else{
-
+                        console.log(33333)
                         if (order.statusChild11Financer === statusObject.financingStep12 && order.statusChild21Harbor === statusObject.financingStep14 &&  order.statusChild22Supervisor === statusObject.financingStep15 ){
                             return orderService.patch(req.body.orderId, {status: changeStep(order.status, req.body.action)});
                         }
@@ -202,6 +258,7 @@ exports.goNextStep = function (app) {
 
                 })
                 .then(order2 => {
+                    console.log(order2)
                     res.send({
                         success : true,
                         data : order2
