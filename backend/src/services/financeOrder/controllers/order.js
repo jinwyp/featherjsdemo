@@ -227,6 +227,7 @@ exports.goNextStep = function (app) {
                         userId: req.headers['X-Authorization-UserId'],
                         status: '',
                         action: req.body.action,
+                        updatedAt : Date.now()
                     };
 
                     if (!order) {

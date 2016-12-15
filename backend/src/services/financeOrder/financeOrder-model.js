@@ -70,10 +70,12 @@ const financeOrderSchema = new Schema({
 
 
     auditHistory: [
-        {userId: { type: String }},
-        {status: { type: String }},
-        {action: { type: String }},
-        {updatedAt: { type : Date, default : Date.now }},
+        {
+            userId    : String,
+            status    : String,
+            action    : String,
+            updatedAt : Date
+        }
     ]
 
 });
