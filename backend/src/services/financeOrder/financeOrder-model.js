@@ -49,6 +49,7 @@ const financeOrderSchema = new Schema({
     depositValue   : {type : Number, required : false},  // 保证金金额（万元)
     loanValue   : {type : Number, required : false},  // 实际放款总金额（万元)
     loanInterestRate   : {type : Number, required : false},  // 放款利率（%)
+    loanFundProviderInterestRate   : {type : Number, required : false},  // 放款利率（%)
 
 
     redemptionAmount     : {type : Number, required : false}, // 已赎回数量（吨）

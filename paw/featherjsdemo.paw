@@ -634,7 +634,7 @@
         <attribute name="redirectauthorization" type="bool">0</attribute>
         <attribute name="method" type="string">POST</attribute>
         <attribute name="followredirects" type="bool">0</attribute>
-        <attribute name="body" type="string">["{\\n  \\"orderId\\": \\"584e2fd48ba2eb0f58649d53\\",\\n  \\"action\\": \\"a11FinishedUpload\\",\\n  \\"operator\\": \\"financer\\",\\n  \\"harborUserId\\": \\"1\\",\\n  \\"supervisorUserId\\": \\"2\\",\\n  \\"fundProviderUserId\\": \\"3\\",\\n  \\"fundProviderAccountantUserId\\": \\"4\\"\\n}"]</attribute>
+        <attribute name="body" type="string">[{"data":{"json":"{\\"orderId\\":\\"584e2fd48ba2eb0f58649d53\\",\\"action\\":\\"a11FinishedUpload\\",\\"operator\\":\\"financer\\",\\"harborUserId\\":\\"583ea0b1f17d22ecde1ecb17\\",\\"supervisorUserId\\":\\"583fc370e6e14eedaa51d2a0\\",\\"fundProviderUserId\\":\\"583fd13e75a02a0f2935374e\\",\\"fundProviderAccountantUserId\\":\\"583fd178551ff10f40108c8c\\"}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
         <attribute name="order" type="int64">3</attribute>
         <attribute name="name" type="string">FinanceOrdersStepChange</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z124"></relationship>
