@@ -234,7 +234,7 @@ exports.goNextStep = function (app) {
                         throw new errors.BadRequest('没找到该审批融资单');
                     }
 
-                    if (order.status === statusObject.financingStep11 && !order.harborUserId){
+                    if (order.status === statusObject.financingStep11 ){
                         console.log(11111)
                         if (req.body.operator === 'financer'){
                             tempStatus = changeStep(order.status, req.body.action);
@@ -244,17 +244,26 @@ exports.goNextStep = function (app) {
                         }
 
                         if (req.body.operator === 'trader'){
-                            tempStatus = changeStep(order.status, req.body.action);
-                            history.status = tempStatus;
-                            order.auditHistory.push(history);
 
-                            return orderService.patch(req.body.orderId, {
-                                statusChild12Trader: tempStatus,
-                                harborUserId : req.body.harborUserId,
-                                supervisorUserId : req.body.supervisorUserId,
-                                fundProviderUserId : req.body.fundProviderUserId,
-                                fundProviderAccountantUserId : req.body.fundProviderAccountantUserId
-                            });
+                            if (order.statusChild11Financer && order.statusChild21Harbor && order.statusChild22Supervisor) {
+                                tempStatus = changeStep(order.status, req.body.action);
+                                history.status = tempStatus;
+                                order.auditHistory.push(history);
+
+                                return orderService.patch(req.body.orderId, { status: tempStatus });
+                            }else{
+                                tempStatus = changeStep(order.status, req.body.action);
+                                history.status = tempStatus;
+                                order.auditHistory.push(history);
+
+                                return orderService.patch(req.body.orderId, {
+                                    statusChild12Trader: tempStatus,
+                                    harborUserId : req.body.harborUserId,
+                                    supervisorUserId : req.body.supervisorUserId,
+                                    fundProviderUserId : req.body.fundProviderUserId,
+                                    fundProviderAccountantUserId : req.body.fundProviderAccountantUserId
+                                });
+                            }
                         }
 
                         if (req.body.operator === 'harbor'){
@@ -271,17 +280,7 @@ exports.goNextStep = function (app) {
                             return orderService.patch(req.body.orderId, {statusChild22Supervisor: tempStatus, auditHistory : order.auditHistory});
                         }
 
-                    }else if (order.status === statusObject.financingStep11 && order.harborUserId && order.supervisorUserId && order.fundProviderUserId) {
-                        if (req.body.operator === 'trader'){
-                            console.log(22222)
-                            tempStatus = changeStep(order.status, req.body.action);
-                            history.status = tempStatus;
-                            order.auditHistory.push(history);
-
-                            return orderService.patch(req.body.orderId, { status: tempStatus });
-                        }
-                    }
-                    else{
+                    }else{
                         console.log(33333)
                         if (order.statusChild11Financer === statusObject.financingStep12 && order.statusChild21Harbor === statusObject.financingStep14 &&  order.statusChild22Supervisor === statusObject.financingStep15 ){
                             tempStatus = changeStep(order.status, req.body.action);
