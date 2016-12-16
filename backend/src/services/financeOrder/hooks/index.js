@@ -13,6 +13,32 @@ const populateFinancerUser = hooks.populate('financerUser', {
     service : '/api/users',
     field   : 'financerUserId'
 });
+const populateSupervisorUser = hooks.populate('supervisorUser', {
+    service : '/api/users',
+    field   : 'supervisorUserId'
+});
+const populateHarborUser = hooks.populate('harborUser', {
+    service : '/api/users',
+    field   : 'harborUserId'
+});
+
+const populateTraderUser = hooks.populate('traderUser', {
+    service : '/api/users',
+    field   : 'traderUserId'
+});
+const populateTraderAccountantUser = hooks.populate('traderAccountantUser', {
+    service : '/api/users',
+    field   : 'traderAccountantUserId'
+});
+
+const populateFundProviderUser = hooks.populate('fundProviderUser', {
+    service : '/api/users',
+    field   : 'fundProviderUserId'
+});
+const populateFundProviderAccountantUser = hooks.populate('fundProviderAccountantUser', {
+    service : '/api/users',
+    field   : 'fundProviderAccountantUserId'
+});
 
 
 exports.before = {
@@ -33,6 +59,12 @@ exports.before = {
 exports.after = {
     all    : [
         populateFinancerUser,
+        populateHarborUser,
+        populateSupervisorUser,
+        populateTraderUser,
+        populateTraderAccountantUser,
+        populateFundProviderUser,
+        populateFundProviderAccountantUser,
         hooks.remove('financerUserId')
     ],
     find   : [],

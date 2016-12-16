@@ -27,13 +27,15 @@ module.exports = function (options) {
 
         hook.data = {
             requestTime : new Date().getTime(),
-            status      : statusList[0].name,
+            status      : 'financingStep11',
             orderType   : 'MYD',
             orderNo     : 'JR20161212' + random,
             orderId     : random,
 
             remark      : remark,
-            financerUserId : user._id,
+            financerUserId : '583cf19dcd6d97c13186ca2b',
+            traderUserId : '583fc397e6e14eedaa51d2a2',
+            traderAccountantUserId : '583fc477e6e14eedaa51d2a3',
 
             mortgageAmount : 1000, // 质押总数量（吨）
             mortgageValue  : 100,  // 融资金额（万元)
