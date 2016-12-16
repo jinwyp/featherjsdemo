@@ -199,7 +199,7 @@ const changeStep = function (state, action) {
     }
     if (state === statusObject.repaymentStep36) {
         if(action === actionObject.a37Approved){
-            state = statusObject.repaymentStep36
+            state = statusObject.repaymentStep37
         }
     }
 
