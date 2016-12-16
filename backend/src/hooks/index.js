@@ -18,7 +18,7 @@ exports.logHook = function (options) {
         console.log("========================================================================");
         console.log("------- hook provider: %s, method: %s, type: %s, item id: %s ", hook.params.provider, hook.method, hook.type, hook.id);
         console.log("------- hook params : ",   hook.params);
-        console.log("------- hook body data (for create, update and patch): ",   hook.data);
-        console.log("------- hook app : ", hook.app);
+        //console.log("------- hook body data (for create, update and patch): ",   hook.data);
+        //console.log("------- hook app : ", hook.app);
     }
 };

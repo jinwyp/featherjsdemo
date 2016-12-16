@@ -19,7 +19,7 @@ exports.before = {
         auth.populateUser(),
         auth.restrictToAuthenticated(),
         //auth.restrictToRoles(restrictToRolesOptons)
-        globalHooks.logHook()
+        //globalHooks.logHook()
     ],
     find   : [
     ],
