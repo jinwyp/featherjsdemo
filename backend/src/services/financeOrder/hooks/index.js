@@ -7,7 +7,7 @@ const hooks       = require('feathers-hooks-common');
 const auth        = require('feathers-authentication').hooks;
 
 const restrictToRequestUser = require('./restrict-to-request-user');
-const process = require('./process');
+const preProcess = require('./process');
 
 const populateFinancerUser = hooks.populate('financerUser', {
     service : '/api/users',
@@ -50,7 +50,7 @@ exports.before = {
     ],
     find   : [],
     get    : [],
-    create : [process()],
+    create : [preProcess],
     update : [],
     patch  : [],
     remove : []
@@ -59,13 +59,12 @@ exports.before = {
 exports.after = {
     all    : [
         populateFinancerUser,
-        populateHarborUser,
-        populateSupervisorUser,
         populateTraderUser,
         populateTraderAccountantUser,
+        populateHarborUser,
+        populateSupervisorUser,
         populateFundProviderUser,
-        populateFundProviderAccountantUser,
-        hooks.remove('financerUserId')
+        populateFundProviderAccountantUser
     ],
     find   : [],
     get    : [],
