@@ -20,7 +20,7 @@ const financeOrderSchema = new Schema({
     orderId     : {type : Number, required : true},
 
     statusChild11Financer : {type : String, required : false},
-    statusChild12Traders : {type : String, required : false},
+    statusChild12Trader : {type : String, required : false},
     statusChild21Harbor : {type : String, required : false},
     statusChild22Supervisor : {type : String, required : false},
 
@@ -29,8 +29,8 @@ const financeOrderSchema = new Schema({
     harborUserId                 : {type : Schema.Types.ObjectId, required : false}, // 库存港口
     fundProviderUserId           : {type : Schema.Types.ObjectId, required : false}, // 资金方
     fundProviderAccountantUserId : {type : Schema.Types.ObjectId, required : false}, // 资金方财务
-    tradersUserId                : {type : Schema.Types.ObjectId, required : false}, // 贸易商
-    tradersAccountantUserId      : {type : Schema.Types.ObjectId, required : false}, // 贸易商财务
+    traderUserId                : {type : Schema.Types.ObjectId, required : false}, // 贸易商
+    traderAccountantUserId      : {type : Schema.Types.ObjectId, required : false}, // 贸易商财务
 
 
     financerCompanyName     : {type : String, required : false},  // 融资方
@@ -38,7 +38,7 @@ const financeOrderSchema = new Schema({
     harbor                  : {type : String, required : false}, // 库存港口
     cargoOwner              : {type : String, required : false}, // 货主名称
     fundProviderCompanyName : {type : String, required : false}, // 资金方
-    tradersCompanyName      : {type : String, required : false}, // 贸易商
+    traderCompanyName      : {type : String, required : false}, // 贸易商
 
 
 
@@ -71,10 +71,10 @@ const financeOrderSchema = new Schema({
 
     auditHistory: [
         {
-            userId    : String,
-            status    : String,
-            action    : String,
-            updatedAt : Date
+            userId    : { type: String },
+            status    : { type: String },
+            action    : { type: String },
+            updatedAt : { type : Date, default : Date.now }
         }
     ]
 

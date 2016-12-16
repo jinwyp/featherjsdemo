@@ -11,8 +11,8 @@ const userRolesAll = [
     { name:'financer', displayName : '融资方'},
     { name:'harbor', displayName : '港口'},
     { name:'supervisor', displayName : '监管'},
-    { name:'traders', displayName : ' 贸易商'},
-    { name:'tradersAccountant', displayName : '贸易商财务'},
+    { name:'trader', displayName : ' 贸易商'},
+    { name:'traderAccountant', displayName : '贸易商财务'},
     { name:'fundProvider', displayName : ' 资金方'},
     { name:'fundProviderAccountant', displayName : '资金方财务'}
 ];
@@ -49,15 +49,15 @@ statusList.forEach(function (item, index){
 
 const actionList = [
     {statusAt:"financingStep11", operator : 'financer', name : 'a11FinishedUpload', displayName : '确认完成上传资料并提交'},
-    {statusAt:"financingStep11", operator : 'traders', name : 'a12SelectHarborAndSupervisor', displayName : '完成选择港口和监管方'},
+    {statusAt:"financingStep11", operator : 'trader', name : 'a12SelectHarborAndSupervisor', displayName : '完成选择港口和监管方'},
 
     {statusAt:"financingStep13", operator : 'harbor', name : 'a13FinishedUpload', displayName : '确认完成上传资料并提交'},
     {statusAt:"financingStep13", operator : 'supervisor', name : 'a14FinishedUpload', displayName : '确认完成上传资料并提交'},
 
-    {statusAt:"financingStep12", operator : 'traders', name : 'a15Approved', displayName : '审核通过'},
-    {statusAt:"financingStep12", operator : 'traders', name : 'a16NotApproved', displayName : '审核不通过'},
+    {statusAt:"financingStep12", operator : 'trader', name : 'a15Approved', displayName : '审核通过'},
+    {statusAt:"financingStep12", operator : 'trader', name : 'a16NotApproved', displayName : '审核不通过'},
 
-    {statusAt:"financingStep16", operator : 'tradersAccountant', name : 'a17Approved', displayName : '确认放款'},
+    {statusAt:"financingStep16", operator : 'traderAccountant', name : 'a17Approved', displayName : '确认放款'},
 
     {statusAt:"financingStep17", operator : 'fundProvider', name : 'a18Approved', displayName : '审核通过'},
     {statusAt:"financingStep17", operator : 'fundProvider', name : 'a19NotApproved', displayName : '审核不通过'},
@@ -71,13 +71,13 @@ const actionList = [
     {statusAt:"financingStep21", operator : 'financer', name : 'a31FirstReturnMoney', displayName : '确认回款'},
     {statusAt:"repaymentStep34", operator : 'financer', name : 'a32SecondReturnMoney', displayName : '确认回款'},
 
-    {statusAt:"repaymentStep31", operator : 'traders', name : 'a32ReturnPortionCargo', displayName : ' 部分回款完成,确认放货'},
-    {statusAt:"repaymentStep31", operator : 'traders', name : 'a33ReturnAllCargo', displayName : '全部回款完成,确认放货'},
+    {statusAt:"repaymentStep31", operator : 'trader', name : 'a32ReturnPortionCargo', displayName : ' 部分回款完成,确认放货'},
+    {statusAt:"repaymentStep31", operator : 'trader', name : 'a33ReturnAllCargo', displayName : '全部回款完成,确认放货'},
     {statusAt:"repaymentStep32", operator : 'harbor', name : 'a34ConfirmPortionCargo', displayName : ' 部分回款完成,确认返回货物'},
     {statusAt:"repaymentStep33", operator : 'harbor', name : 'a35ConfirmAllCargo', displayName : '全部回款完成,确认返回货物'},
 
-    {statusAt:"repaymentStep35", operator : 'traders', name : 'a36ReturnMoney', displayName : '确认回款给资金方'},
-    {statusAt:"repaymentStep36", operator : 'tradersAccountant', name : 'a37Approved', displayName : '放款给资金方'},
+    {statusAt:"repaymentStep35", operator : 'trader', name : 'a36ReturnMoney', displayName : '确认回款给资金方'},
+    {statusAt:"repaymentStep36", operator : 'traderAccountant', name : 'a37Approved', displayName : '放款给资金方'},
 ];
 
 
@@ -226,8 +226,7 @@ exports.goNextStep = function (app) {
                     const history = {
                         userId: req.headers['X-Authorization-UserId'],
                         status: '',
-                        action: req.body.action,
-                        updatedAt : Date.now()
+                        action: req.body.action
                     };
 
                     if (!order) {
@@ -243,10 +242,10 @@ exports.goNextStep = function (app) {
                             return orderService.patch(req.body.orderId, {statusChild11Financer: tempStatus, status: tempStatus, auditHistory : order.auditHistory});
                         }
 
-                        if (req.body.operator === 'traders'){
+                        if (req.body.operator === 'trader'){
                             history.status = tempStatus;
                             order.auditHistory.push(history);
-                            return orderService.patch(req.body.orderId, {statusChild12Traders: changeStep(order.status, req.body.action), auditHistory : order.auditHistory});
+                            return orderService.patch(req.body.orderId, {statusChild12Trader: changeStep(order.status, req.body.action), auditHistory : order.auditHistory});
                         }
 
                     }else if (order.status === statusObject.financingStep13){
