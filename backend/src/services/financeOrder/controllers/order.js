@@ -78,6 +78,9 @@ const actionList = [
 
     {statusAt:"repaymentStep35", operator : 'trader', name : 'a36ReturnMoney', displayName : '确认回款给资金方'},
     {statusAt:"repaymentStep36", operator : 'traderAccountant', name : 'a37Approved', displayName : '放款给资金方'},
+
+    {statusAt:"financingStep21", operator : 'trader', name : 'a37Punishment', displayName : '扣押货物(处置货权)'},
+    {statusAt:"repaymentStep34", operator : 'trader', name : 'a38Punishment', displayName : '扣押货物(处置货权)'},
 ];
 
 
@@ -161,11 +164,19 @@ const changeStep = function (state, action) {
         if(action === actionObject.a31FirstReturnMoney){
             state = statusObject.repaymentStep31
         }
+
+        if(action === actionObject.a37Punishment){
+            state = statusObject.repaymentStep53
+        }
     }
     // 融资方第二次回款开始
     if (state === statusObject.repaymentStep34) {
         if(action === actionObject.a32SecondReturnMoney){
             state = statusObject.repaymentStep31
+        }
+
+        if(action === actionObject.a38Punishment){
+            state = statusObject.repaymentStep53
         }
     }
 
@@ -235,7 +246,7 @@ exports.goNextStep = function (app) {
                     }
 
                     if (order.status === statusObject.financingStep11 ){
-                        console.log(11111)
+
                         if (req.body.operator === 'financer'){
                             tempStatus = changeStep(order.status, req.body.action);
                             history.status = tempStatus;
@@ -281,7 +292,7 @@ exports.goNextStep = function (app) {
                         }
 
                     }else{
-                        console.log(33333)
+
                         if (order.statusChild11Financer === statusObject.financingStep12 && order.statusChild21Harbor === statusObject.financingStep14 &&  order.statusChild22Supervisor === statusObject.financingStep15 ){
                             tempStatus = changeStep(order.status, req.body.action);
                             history.status = tempStatus;
