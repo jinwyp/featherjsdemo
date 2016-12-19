@@ -51,6 +51,7 @@ const financeOrderSchema = new Schema({
     loanInterestRate   : {type : Number, required : false},  // 放款利率（%)
     loanFundProviderInterestRate   : {type : Number, required : false},  // 放款利率（%)
 
+    harborConfirmAmount     : {type : Number, required : false}, // 港口已确认数量（吨）
 
     redemptionAmount     : {type : Number, required : false}, // 已赎回数量（吨）
     returnValue          : {type : Number, required : false},  // 已归还金额（万元）
