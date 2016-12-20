@@ -1,4 +1,6 @@
 'use strict';
+const fileBlob = require('./fileBlob');
+const file = require('./file');
 const contact = require('./contact');
 const paymentOrder = require('./paymentorder');
 const financeOrder = require('./financeorder');
@@ -16,4 +18,6 @@ module.exports = function() {
   app.configure(financeOrder);
   app.configure(paymentOrder);
   app.configure(contact);
+  app.configure(file);
+  app.configure(fileBlob);
 };

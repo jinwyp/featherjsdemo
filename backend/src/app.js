@@ -20,15 +20,16 @@ const restFormatter = require('./middleware/service-formatter');
 
 
 
+
 const app = feathers();
 
 app.configure(configuration(path.join(__dirname, '..')));
 
 
 
+
 app.use(compress())
     .options('*', cors())
-
     .use(morgan('dev'))
     .use(cors())
     .use(favicon(path.join(app.get('public'), 'favicon.ico')))
@@ -40,6 +41,8 @@ app.use(compress())
     .configure(socketio())
     .configure(services)
     .configure(middleware)
+
 ;
+
 
 module.exports = app;
