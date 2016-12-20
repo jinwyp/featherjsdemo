@@ -24,7 +24,6 @@ module.exports = function (options) {
         const remark = hook.data.remark.substring(0, 500).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');  // Do some basic HTML escaping
 
         var random = randomIntFromInterval(10000, 99999);
-
         hook.data = {
             requestTime : new Date().getTime(),
             status      : 'financingStep11',

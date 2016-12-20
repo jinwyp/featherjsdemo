@@ -14,7 +14,7 @@ exports.before = {
   ],
   find: [],
   get: [],
-  create: [convertDataURI],
+  create: [convertDataURI()],
   update: [],
   patch: [],
   remove: []

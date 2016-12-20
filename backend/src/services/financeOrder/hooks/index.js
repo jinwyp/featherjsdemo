@@ -50,7 +50,7 @@ exports.before = {
     ],
     find   : [],
     get    : [],
-    create : [preProcess],
+    create : [preProcess()],
     update : [],
     patch  : [],
     remove : []

@@ -19,36 +19,35 @@ module.exports = function (options) {
 
     return function (hook) {
 
-        const user = hook.params.user;
-        const remark = hook.data.remark.substring(0, 500).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');  // Do some basic HTML escaping
+        const blobService = hook.app.service('/api/fileBlobs');
 
-        const blobService = app.service('/api/fileBlobs');
-
-
-        if (!hook.data.uri && hook.params.file){
+        console.log("-----------", hook.data)
+        if (!hook.data.uri && hook.params.file) {
             const file = hook.params.file;
-            const uri = dauria.getBase64DataURI(file.buffer, file.mimetype);
+            const uri  = dauria.getBase64DataURI(file.buffer, file.mimetype);
 
-
-            blobService.create({
-                uri: uri
+            return blobService.create({
+                uri : uri
             }).then(function (result) {
-                console.log(' ---------- Stored blob with id:', result.id);
 
                 hook.data = {
-                    "originalUrl": file.originalname,
-                    "url": file.fieldname,
-                    "fileSizeMulter": file.size,
-                    "fileType": result.mimetype,
-                    "fileId": result.id,
-                    "contentURI": result.uri,
-                    "fileSize": result.size
+                    "originalFileName"  : file.originalname,
+                    "fileType"       : result.mimetype,
+                    "path"           : file.originalname,
+                    "fileSizeMulter" : file.size,
 
+                    "fileId"         : result.id,
+                    "fileSize"       : result.size,
+
+                    "contractType" : hook.data.contractType,
+                    "contractUserType" : hook.data.contractUserType,
+                    "userId" : hook.params.user._id,
+                    "orderId" : hook.data.orderId
                 };
 
-            }).catch(err => {
-                console.error(err);
-            });
+                return hook
+            })
         }
+
     };
 };

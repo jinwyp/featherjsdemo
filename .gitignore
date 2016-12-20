@@ -2,6 +2,7 @@
 logs
 *.log
 npm-debug.log*
+frontend/src/upload
 
 # Runtime data
 pids
