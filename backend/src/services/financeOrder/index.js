@@ -32,4 +32,5 @@ module.exports = function () {
 
 
     app.post('/api/financeorders/audit', orderController.goNextStep(app));
+    app.get('/api/financeorders/file/:fileId', orderController.getFileById(app));
 };

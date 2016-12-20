@@ -320,33 +320,27 @@ exports.goNextStep = function (app) {
 
 
 
-exports.changePassword = function (app) {
+exports.getFileById = function (app) {
     return function (req, res, next) {
 
-        const userService = app.service('/api/users');
+        const fileBlobService = app.service('/api/fileBlobs');
+        const fileService = app.service('/api/files');
 
         console.log("---- body", req.body);
+        console.log("---- params", req.params);
         console.log("---- feathers", req.feathers);
 
         // Get the user service and `create` a new user
 
-        userService.get(req.body.userId)
-            .then(user => {
-                if (!user) {
-                    throw new errors.BadRequest('没找到该用户');
-                }
-                if (bcrypt.compareSync(req.body.oldPassword, user.password)){
-                    return userService.patch(req.body.userId, {password: req.body.newPassword});
-                }else{
-                    throw new errors.BadRequest('当前密码输入错误!');
-                }
-            })
-            .then(user => {
-                res.send({
-                    success : true,
-                    data : user
-                });
-            })
-            .catch(next);
+        fileService.get(req.params.fileId).then(file => {
+            if (!file) {
+                throw new errors.BadRequest('没找到该文件');
+            }
+            console.log(file)
+
+            return res.download( app.get('public') + '/upload/blob/' + file.fileId, file.originalFileName);
+
+        })
+        .catch(next);
     };
 };
