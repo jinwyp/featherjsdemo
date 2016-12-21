@@ -19,10 +19,9 @@ const financeOrderSchema = new Schema({
     orderNo     : {type : String, required : true},
     orderId     : {type : Number, required : true},
 
-    statusChild11Financer : {type : String, required : false},
-    statusChild12Trader : {type : String, required : false},
-    statusChild21Harbor : {type : String, required : false},
-    statusChild22Supervisor : {type : String, required : false},
+    statusChild1Financer : {type : String, required : false},
+    statusChild2Harbor : {type : String, required : false},
+    statusChild3Supervisor : {type : String, required : false},
 
     financerUserId               : {type : Schema.Types.ObjectId, required : false},  // 融资方
     supervisorUserId             : {type : Schema.Types.ObjectId, required : false}, // 库存港口
