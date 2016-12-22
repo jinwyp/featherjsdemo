@@ -228,73 +228,94 @@ exports.goNextStep = function (app) {
         console.log(req.headers)
 
         const orderService = app.service('/api/financeorders');
+        const userService = app.service('/api/users');
+
+        let currentUser = {};
+        let currentOrder = {};
 
         if (req.body.orderId){
-            orderService.get(req.body.orderId)
-                .then(order  => {
 
-                    const history = {
-                        userId: req.headers['X-Authorization-UserId'],
-                        status: '',
-                        action: req.body.action
-                    };
+            userService.get(req.headers['x-authorization-userid']).then(user  => {
+                if (!user) {
+                    throw new errors.BadRequest('没找到该用户');
+                }
 
-                    var tempStatus = ''
+                currentUser = user
+                return orderService.get(req.body.orderId)
+            })
+            .then(order  => {
+                if (!order) {
+                    throw new errors.BadRequest('没找到该审批融资单');
+                }
 
-                    if (!order) {
-                        throw new errors.BadRequest('没找到该审批融资单');
-                    }
+                currentOrder = order;
+                return userService.get(order.financerUserId)
+            })
+            .then(user2  => {
+                if (!user2) {
+                    throw new errors.BadRequest('没找到该订单融资用户');
+                }
 
-                    tempStatus = changeStep(order.status, req.body.action);
-                    history.status = tempStatus;
-                    order.auditHistory.push(history);
+                const history = {
+                    userId: currentUser._id,
+                    username: currentUser.username,
+                    status: '',
+                    action: req.body.action
+                };
 
-                    if (order.status === statusObject.financingStep11 ){
+                var tempStatus = ''
 
-                        return orderService.patch(req.body.orderId, {
-                            status: tempStatus,
-                            auditHistory : order.auditHistory,
-                            harborUserId : req.body.harborUserId,
-                            supervisorUserId : req.body.supervisorUserId,
-                            fundProviderUserId : req.body.fundProviderUserId,
-                            fundProviderAccountantUserId : req.body.fundProviderAccountantUserId
-                        });
+                tempStatus = changeStep(currentOrder.status, req.body.action);
+                history.status = tempStatus;
+                currentOrder.auditHistory.push(history);
 
-                    }else if (order.status === statusObject.financingStep12 ){
+                if (currentOrder.status === statusObject.financingStep11 ){
 
-                        if (req.body.operator === 'trader'){
-
-                            return orderService.patch(req.body.orderId, { status: tempStatus, auditHistory : order.auditHistory });
-                        }
-
-                        if (req.body.operator === 'financer'){
-                            return orderService.patch(req.body.orderId, {statusChild1Financer: tempStatus, auditHistory : order.auditHistory});
-                        }
-
-                        if (req.body.operator === 'harbor'){
-                            return orderService.patch(req.body.orderId, {statusChild2Harbor: tempStatus, auditHistory : order.auditHistory});
-                        }
-
-                        if (req.body.operator === 'supervisor'){
-                            return orderService.patch(req.body.orderId, {statusChild3Supervisor: tempStatus, auditHistory : order.auditHistory});
-                        }
-
-                    }else{
-
-                        if (order.statusChild1Financer === statusObject.financingStep13 && order.statusChild2Harbor === statusObject.financingStep14 &&  order.statusChild3Supervisor === statusObject.financingStep15 ){
-                            return orderService.patch(req.body.orderId, {status: tempStatus, auditHistory : order.auditHistory});
-                        }
-
-                    }
-
-                })
-                .then(order2 => {
-                    res.send({
-                        success : true,
-                        data : order2 || []
+                    return orderService.patch(req.body.orderId, {
+                        status: tempStatus,
+                        auditHistory : currentOrder.auditHistory,
+                        financerCompanyName : user2.companyName || 'xxx',
+                        harborUserId : req.body.harborUserId,
+                        supervisorUserId : req.body.supervisorUserId,
+                        fundProviderUserId : req.body.fundProviderUserId,
+                        fundProviderAccountantUserId : req.body.fundProviderAccountantUserId
                     });
-                })
-                .catch(next);
+
+                }else if (currentOrder.status === statusObject.financingStep12 ){
+
+                    if (req.body.operator === 'trader'){
+
+                        return orderService.patch(req.body.orderId, { status: tempStatus, auditHistory : currentOrder.auditHistory });
+                    }
+
+                    if (req.body.operator === 'financer'){
+                        return orderService.patch(req.body.orderId, {statusChild1Financer: tempStatus, auditHistory : currentOrder.auditHistory});
+                    }
+
+                    if (req.body.operator === 'harbor'){
+                        return orderService.patch(req.body.orderId, {statusChild2Harbor: tempStatus, auditHistory : currentOrder.auditHistory});
+                    }
+
+                    if (req.body.operator === 'supervisor'){
+                        return orderService.patch(req.body.orderId, {statusChild3Supervisor: tempStatus, auditHistory : currentOrder.auditHistory});
+                    }
+
+                }else{
+
+                    if (currentOrder.statusChild1Financer === statusObject.financingStep13 && currentOrder.statusChild2Harbor === statusObject.financingStep14 &&  currentOrder.statusChild3Supervisor === statusObject.financingStep15 ){
+                        return orderService.patch(req.body.orderId, {status: tempStatus, auditHistory : currentOrder.auditHistory});
+                    }
+
+                }
+
+            })
+            .then(order2 => {
+                res.send({
+                    success : true,
+                    data : order2 || []
+                });
+            })
+            .catch(next);
         }else{
             res.json({})
         }

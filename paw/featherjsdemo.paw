@@ -5,7 +5,7 @@
     <databaseInfo>
         <version>134481920</version>
         <UUID>5CECDFC2-43F4-42AE-9F26-0917BCCE73C0</UUID>
-        <nextObjectID>166</nextObjectID>
+        <nextObjectID>168</nextObjectID>
         <metadata>
             <plist version="1.0">
                 <dict>
@@ -143,8 +143,9 @@
         <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z109"></relationship>
     </object>
     <object type="LMREQUEST" id="z111">
+        <attribute name="body" type="string">[{"data":{"json":"{}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
         <attribute name="uuid" type="string">21EAE97D-996A-46F5-9CAF-E915581EF85A</attribute>
-        <attribute name="url" type="string">[{"data":{"environmentVariable":"E15A0A44-916F-4032-834F-212E48003651"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/paymentOrders"]</attribute>
+        <attribute name="url" type="string">[{"data":{"environmentVariable":"E15A0A44-916F-4032-834F-212E48003651"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},{"data":{"environmentVariable":"A8F4783D-E744-4083-8C46-145FC071424E"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/paymentorders"]</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -155,12 +156,12 @@
         <attribute name="name" type="string">PaymentOrdersList</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z124"></relationship>
         <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
-        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z114"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z167 z114"></relationship>
     </object>
     <object type="LMKEYVALUE" id="z112">
-        <attribute name="value" type="string"></attribute>
+        <attribute name="value" type="string">[{"data":{"environmentVariable":"F4A0BE75-BC00-41D9-BC32-C141F6106A59"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"}]</attribute>
         <attribute name="order" type="int64">0</attribute>
-        <attribute name="name" type="string"></attribute>
+        <attribute name="name" type="string">[{"data":{"environmentVariable":"FC017210-FB40-407F-872C-F8F2F4DBBBA5"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"}]</attribute>
         <attribute name="enabled" type="bool">1</attribute>
         <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
         <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
@@ -169,24 +170,24 @@
     </object>
     <object type="LMREQUEST" id="z113">
         <attribute name="uuid" type="string">C7D1A0C3-9136-4E2A-9346-F0618284A007</attribute>
-        <attribute name="url" type="string">[{"data":{"environmentVariable":"E15A0A44-916F-4032-834F-212E48003651"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/paymentOrders"]</attribute>
+        <attribute name="url" type="string">[{"data":{"environmentVariable":"E15A0A44-916F-4032-834F-212E48003651"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},{"data":{"environmentVariable":"A8F4783D-E744-4083-8C46-145FC071424E"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/paymentorders"]</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
         <attribute name="redirectauthorization" type="bool">0</attribute>
         <attribute name="method" type="string">POST</attribute>
         <attribute name="followredirects" type="bool">0</attribute>
-        <attribute name="body" type="string">[{"data":{"json":"{\\"paymentNo\\":\\"1234567\\",\\"date\\":\\"2016-10-26 18:42:22\\",\\"type\\":\\"保证金\\",\\"redemptionAmount\\":80,\\"redemptionValue\\":600000}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
+        <attribute name="body" type="string">[{"data":{"json":"{\\"paymentType\\":\\"deposit\\",\\"depositType\\":\\"notified\\",\\"depositValue\\":100,\\"orderNo\\":\\"5859f038ce90cd31b770b07a\\"}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
         <attribute name="order" type="int64">5</attribute>
         <attribute name="name" type="string">PaymentOrdersAdd</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z124"></relationship>
         <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
-        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z112"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z168 z112"></relationship>
     </object>
     <object type="LMKEYVALUE" id="z114">
-        <attribute name="value" type="string"></attribute>
+        <attribute name="value" type="string">[{"data":{"environmentVariable":"F4A0BE75-BC00-41D9-BC32-C141F6106A59"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"}]</attribute>
         <attribute name="order" type="int64">0</attribute>
-        <attribute name="name" type="string"></attribute>
+        <attribute name="name" type="string">[{"data":{"environmentVariable":"FC017210-FB40-407F-872C-F8F2F4DBBBA5"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"}]</attribute>
         <attribute name="enabled" type="bool">1</attribute>
         <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
         <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
@@ -340,7 +341,7 @@
         <relationship name="values" type="0/0" destination="LMENVIRONMENTVARIABLEVALUE" idrefs="z129 z128"></relationship>
     </object>
     <object type="LMENVIRONMENTVARIABLEVALUE" id="z128">
-        <attribute name="value" type="string">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI1ODNjZjE5ZGNkNmQ5N2MxMzE4NmNhMmIiLCJpYXQiOjE0ODIyMDU1NzAsImV4cCI6MTQ4MjI5MTk3MCwiaXNzIjoiZmVhdGhlcnMifQ.o1Mt5GpluHUyNdgybFbsrOZpQCupjFqHiuGrS3lVs7k</attribute>
+        <attribute name="value" type="string">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI1ODNmYzM5N2U2ZTE0ZWVkYWE1MWQyYTIiLCJpYXQiOjE0ODIzMDY2NDQsImV4cCI6MTQ4MjM5MzA0NCwiaXNzIjoiZmVhdGhlcnMifQ.oj6m1wzR4s1h06TDqzrxU0tdurhdX0j3CbEs7nPBiC8</attribute>
         <relationship name="environment" type="1/1" destination="LMENVIRONMENT" idrefs="z108"></relationship>
         <relationship name="variable" type="1/1" destination="LMENVIRONMENTVARIABLE" idrefs="z127"></relationship>
     </object>
@@ -732,5 +733,25 @@
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z162"></relationship>
         <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
         <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z165 z164"></relationship>
+    </object>
+    <object type="LMKEYVALUE" id="z167">
+        <attribute name="value" type="string"></attribute>
+        <attribute name="order" type="int64">1</attribute>
+        <attribute name="name" type="string"></attribute>
+        <attribute name="enabled" type="bool">1</attribute>
+        <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z111"></relationship>
+    </object>
+    <object type="LMKEYVALUE" id="z168">
+        <attribute name="value" type="string"></attribute>
+        <attribute name="order" type="int64">1</attribute>
+        <attribute name="name" type="string"></attribute>
+        <attribute name="enabled" type="bool">1</attribute>
+        <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z113"></relationship>
     </object>
 </database>
