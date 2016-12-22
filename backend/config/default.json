@@ -1,7 +1,7 @@
 {
   "host": "localhost",
   "port": 3030,
-  "mongodb": "mongodb://localhost:27017/slide",
+  "mongodb": "mongodb://192.168.1.51:27017/slide",
   "public": "../../frontend/src",
   "auth": {
     "token": {
