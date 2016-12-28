@@ -88,6 +88,7 @@
         <relationship name="variable" type="1/1" destination="LMENVIRONMENTVARIABLE" idrefs="z104"></relationship>
     </object>
     <object type="LMREQUEST" id="z106">
+        <attribute name="body" type="string">[{"data":{"json":"{}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
         <attribute name="uuid" type="string">EFF79419-E0F6-42DC-9636-233B42EE6BF4</attribute>
         <attribute name="url" type="string">[{"data":{"environmentVariable":"E15A0A44-916F-4032-834F-212E48003651"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},{"data":{"environmentVariable":"A8F4783D-E744-4083-8C46-145FC071424E"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/financeorders"]</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
@@ -100,7 +101,7 @@
         <attribute name="name" type="string">FinanceOrdersList</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z124"></relationship>
         <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
-        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z130 z102"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z102 z130"></relationship>
     </object>
     <object type="LMENVIRONMENTDOMAIN" id="z107">
         <attribute name="uuid" type="string">967B9396-102D-49F1-8474-0BC39684D0EF</attribute>
@@ -341,7 +342,7 @@
         <relationship name="values" type="0/0" destination="LMENVIRONMENTVARIABLEVALUE" idrefs="z129 z128"></relationship>
     </object>
     <object type="LMENVIRONMENTVARIABLEVALUE" id="z128">
-        <attribute name="value" type="string">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI1ODNmYzM5N2U2ZTE0ZWVkYWE1MWQyYTIiLCJpYXQiOjE0ODIzMDY2NDQsImV4cCI6MTQ4MjM5MzA0NCwiaXNzIjoiZmVhdGhlcnMifQ.oj6m1wzR4s1h06TDqzrxU0tdurhdX0j3CbEs7nPBiC8</attribute>
+        <attribute name="value" type="string">Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI1ODNjZjE5ZGNkNmQ5N2MxMzE4NmNhMmIiLCJpYXQiOjE0ODI5MDUwMTksImV4cCI6MTQ4Mjk5MTQxOSwiaXNzIjoiZmVhdGhlcnMifQ._kCjhm7dpy6WU-HjVIhkmvfKGb-KkUXQgZPRTjxTsYk</attribute>
         <relationship name="environment" type="1/1" destination="LMENVIRONMENT" idrefs="z108"></relationship>
         <relationship name="variable" type="1/1" destination="LMENVIRONMENTVARIABLE" idrefs="z127"></relationship>
     </object>
@@ -635,7 +636,7 @@
         <attribute name="redirectauthorization" type="bool">0</attribute>
         <attribute name="method" type="string">POST</attribute>
         <attribute name="followredirects" type="bool">0</attribute>
-        <attribute name="body" type="string">[{"data":{"json":"{\\"orderId\\":\\"584e2fd48ba2eb0f58649d53\\",\\"action\\":\\"a11FinishedUpload\\",\\"operator\\":\\"financer\\",\\"harborUserId\\":\\"583ea0b1f17d22ecde1ecb17\\",\\"supervisorUserId\\":\\"583fc370e6e14eedaa51d2a0\\",\\"fundProviderUserId\\":\\"583fd13e75a02a0f2935374e\\",\\"fundProviderAccountantUserId\\":\\"583fd178551ff10f40108c8c\\"}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
+        <attribute name="body" type="string">["{\\n  \\"orderId\\": \\"584e2fd48ba2eb0f58649d53\\",\\n  \\"action\\": \\"a11FinishedUpload\\",\\n  \\"files\\": [\\n{\\nfileId : '111'},\\n{fileId: '2222'}\\n]\\n}"]</attribute>
         <attribute name="order" type="int64">3</attribute>
         <attribute name="name" type="string">FinanceOrdersStepChange</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z124"></relationship>

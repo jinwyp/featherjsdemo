@@ -20,7 +20,8 @@
     "jshint": "jshint src/. test/. --config",
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
-    "mocha": "mocha test/ --recursive"
+    "mocha": "mocha test/ --recursive",
+    "docker": "docker run --name nginx -p 4000:4000 -v /Users/tttt/Documents/docker/images/nginx/conf.d/site2.conf:/etc/nginx/conf.d/site2.conf  -d nginx"
   },
   "dependencies": {
     "bcryptjs": "^2.3.0",
