@@ -11,7 +11,7 @@ exports.signUp = function (app) {
         const body = req.body;
 
         // Get the user service and `create` a new user
-        app.service('/api/users').create({
+        app.service('/apimock/users').create({
             username    : body.username,
             email    : body.email,
             mobilePhone    : body.mobilePhone,
@@ -33,7 +33,7 @@ exports.signUp = function (app) {
 exports.changePassword = function (app) {
     return function (req, res, next) {
 
-        const userService = app.service('/api/users');
+        const userService = app.service('/apimock/users');
 
         console.log("---- body", req.body);
         console.log("---- feathers", req.feathers);

@@ -15,10 +15,10 @@ module.exports = function () {
     });
 
     // Initialize our service with any options it requires
-    app.use('/api/fileBlobs', blobService1);
+    app.use('/apimock/fileBlobs', blobService1);
 
     // Get our initialize service to that we can bind hooks
-    const fileBlobService = app.service('/api/fileBlobs');
+    const fileBlobService = app.service('/apimock/fileBlobs');
 
     // Set up our before hooks
     fileBlobService.before(hooks.before);

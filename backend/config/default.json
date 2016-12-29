@@ -9,9 +9,9 @@
     },
     "local": {},
     "successRedirect": "/chat.html",
-    "localEndpoint": "/api/auth/login",
-    "tokenEndpoint": "/api/auth/token",
-    "userEndpoint" : "/api/users",
+    "localEndpoint": "/apimock/auth/login",
+    "tokenEndpoint": "/apimock/auth/token",
+    "userEndpoint" : "/apimock/users",
     "header" : "X-Authorization"
   }
 }

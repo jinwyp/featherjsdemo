@@ -39,10 +39,10 @@ module.exports = function () {
     const multipartMiddleware = multer({storage : storage2});
 
     // Initialize our service with any options it requires
-    app.use('/api/files', multipartMiddleware.single('file'), fileMiddleware, service(options));
+    app.use('/apimock/files', multipartMiddleware.single('file'), fileMiddleware, service(options));
 
     // Get our initialize service to that we can bind hooks
-    const fileService = app.service('/api/files');
+    const fileService = app.service('/apimock/files');
 
     // Set up our before hooks
     fileService.before(hooks.before);

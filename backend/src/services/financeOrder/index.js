@@ -19,10 +19,10 @@ module.exports = function () {
     };
 
     // Initialize our service with any options it requires
-    app.use('/api/financeorders', service(options));
+    app.use('/apimock/financeorders', service(options));
 
     // Get our initialize service to that we can bind hooks
-    const financeOrderService = app.service('/api/financeorders');
+    const financeOrderService = app.service('/apimock/financeorders');
 
     // Set up our before hooks
     financeOrderService.before(hooks.before);
@@ -31,6 +31,6 @@ module.exports = function () {
     financeOrderService.after(hooks.after);
 
 
-    app.post('/api/financeorders/audit', orderController.goNextStep(app));
-    app.get('/api/financeorders/file/:fileId', orderController.getFileById(app));
+    app.post('/apimock/financeorders/audit', orderController.goNextStep(app));
+    app.get('/apimock/financeorders/file/:fileId', orderController.getFileById(app));
 };

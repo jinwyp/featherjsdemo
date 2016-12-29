@@ -227,8 +227,8 @@ exports.goNextStep = function (app) {
 
         console.log(req.headers)
 
-        const orderService = app.service('/api/financeorders');
-        const userService = app.service('/api/users');
+        const orderService = app.service('/apimock/financeorders');
+        const userService = app.service('/apimock/users');
 
         let currentUser = {};
         let currentOrder = {};
@@ -329,8 +329,8 @@ exports.goNextStep = function (app) {
 exports.getFileById = function (app) {
     return function (req, res, next) {
 
-        const fileBlobService = app.service('/api/fileBlobs');
-        const fileService = app.service('/api/files');
+        const fileBlobService = app.service('/apimock/fileBlobs');
+        const fileService = app.service('/apimock/files');
 
         console.log("---- body", req.body);
         console.log("---- params", req.params);

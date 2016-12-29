@@ -23,10 +23,10 @@ module.exports = function () {
     };
 
     // Initialize our service with any options it requires
-    app.use('/api/users', service(options));
+    app.use('/apimock/users', service(options));
 
     // Get our initialize service to that we can bind hooks
-    const userService = app.service('/api/users');
+    const userService = app.service('/apimock/users');
 
     // Set up our before hooks
     userService.before(hooks.before);
@@ -36,8 +36,8 @@ module.exports = function () {
 
 
 
-    app.post('/api/user/signup', userInfoController.signUp(app));
-    app.post('/api/user/password', userInfoController.changePassword(app));
+    app.post('/apimock/user/signup', userInfoController.signUp(app));
+    app.post('/apimock/user/password', userInfoController.changePassword(app));
 
 
 };

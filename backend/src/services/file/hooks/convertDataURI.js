@@ -19,7 +19,7 @@ module.exports = function (options) {
 
     return function (hook) {
 
-        const blobService = hook.app.service('/api/fileBlobs');
+        const blobService = hook.app.service('/apimock/fileBlobs');
 
         console.log("-----------", hook.data)
         if (!hook.data.uri && hook.params.file) {

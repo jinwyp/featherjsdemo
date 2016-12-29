@@ -10,33 +10,33 @@ const restrictToRequestUser = require('./restrict-to-request-user');
 const preProcess = require('./process');
 
 const populateFinancerUser = hooks.populate('financerUser', {
-    service : '/api/users',
+    service : '/apimock/users',
     field   : 'financerUserId'
 });
 const populateSupervisorUser = hooks.populate('supervisorUser', {
-    service : '/api/users',
+    service : '/apimock/users',
     field   : 'supervisorUserId'
 });
 const populateHarborUser = hooks.populate('harborUser', {
-    service : '/api/users',
+    service : '/apimock/users',
     field   : 'harborUserId'
 });
 
 const populateTraderUser = hooks.populate('traderUser', {
-    service : '/api/users',
+    service : '/apimock/users',
     field   : 'traderUserId'
 });
 const populateTraderAccountantUser = hooks.populate('traderAccountantUser', {
-    service : '/api/users',
+    service : '/apimock/users',
     field   : 'traderAccountantUserId'
 });
 
 const populateFundProviderUser = hooks.populate('fundProviderUser', {
-    service : '/api/users',
+    service : '/apimock/users',
     field   : 'fundProviderUserId'
 });
 const populateFundProviderAccountantUser = hooks.populate('fundProviderAccountantUser', {
-    service : '/api/users',
+    service : '/apimock/users',
     field   : 'fundProviderAccountantUserId'
 });
 

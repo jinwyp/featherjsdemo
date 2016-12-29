@@ -16,10 +16,10 @@ module.exports = function() {
   };
 
   // Initialize our service with any options it requires
-  app.use('/api/paymentorders', service(options));
+  app.use('/apimock/paymentorders', service(options));
 
   // Get our initialize service to that we can bind hooks
-  const paymentOrderService = app.service('/api/paymentorders');
+  const paymentOrderService = app.service('/apimock/paymentorders');
 
   // Set up our before hooks
   paymentOrderService.before(hooks.before);
