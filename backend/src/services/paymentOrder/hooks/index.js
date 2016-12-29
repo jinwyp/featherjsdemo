@@ -4,6 +4,8 @@ const globalHooks = require('../../../hooks');
 const hooks = require('feathers-hooks');
 const auth        = require('feathers-authentication').hooks;
 
+const updateProcess = require('./updateHook.js');
+
 exports.before = {
   all: [
       auth.verifyToken(),
@@ -13,8 +15,8 @@ exports.before = {
   find: [],
   get: [],
   create: [],
-  update: [],
-  patch: [],
+  update: [updateProcess()],
+  patch: [updateProcess()],
   remove: []
 };
 
