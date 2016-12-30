@@ -20,12 +20,15 @@ const paymentOrderSchema = new Schema({
     depositType  : {type : String, required : false},
     depositValue : {type : Number, required : false},
     paymentNo    : {type : String, required : false},
-    confirmDate      : {type : Date, required : false},
+    confirmDate  : {type : Date, required : false},
 
 
     redemptionValue : {type : Number, required : false},  // 本次还款金额
     leftPrincipalValue : {type : Number, required : false}, // 剩余本金
-    redemptionAmount : {type : Number, required : false}
+
+    redemptionAmount : {type : Number, required : false},
+    uploadFiles : [{type : Schema.Types.ObjectId, ref : 'file'}]
+
 
 });
 
