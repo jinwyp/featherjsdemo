@@ -20,8 +20,8 @@ module.exports = function () {
     const options = {
         Model    : file,
         paginate : {
-            default : 5,
-            max     : 25
+            default : 100,
+            max     : 100
         }
     };
 

@@ -15,7 +15,7 @@ module.exports = function (options) {
 
         const user = hook.params.user;
 
-        if (hook.data.depositType === 'alreadyPaid'){
+        if (hook.data.paymentType === 'deposit' && hook.data.depositType === 'alreadyPaid'){
             hook.data.confirmDate = new Date().getTime()
         }
 

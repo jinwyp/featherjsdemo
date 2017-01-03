@@ -24,11 +24,7 @@ const paymentOrderSchema = new Schema({
 
 
     redemptionValue : {type : Number, required : false},  // 本次还款金额
-    leftPrincipalValue : {type : Number, required : false}, // 剩余本金
-
-    redemptionAmount : {type : Number, required : false},
-    uploadFiles : [{type : Schema.Types.ObjectId, ref : 'file'}]
-
+    leftPrincipalValue : {type : Number, required : false} // 剩余本金
 
 });
 
