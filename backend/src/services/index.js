@@ -1,4 +1,5 @@
 'use strict';
+const company = require('./company');
 const fileBlob = require('./fileBlob');
 const file = require('./file');
 const contact = require('./contact');
@@ -23,4 +24,5 @@ module.exports = function() {
   app.configure(file);
   app.configure(fileBlob);
 
+  app.configure(company);
 };
