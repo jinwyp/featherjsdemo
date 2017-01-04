@@ -15,12 +15,12 @@ const paymentOrderSchema = new Schema({
 
     orderNo : {type : String, required : true},
     orderId : {type : String, required : true},
-    paymentType  : {type : String, required : true},
+    paymentType  : {type : String, required : true}, // 保证金还是还款
 
     depositType  : {type : String, required : false},
-    depositValue : {type : Number, required : false},
-    paymentNo    : {type : String, required : false},
-    confirmDate  : {type : Date, required : false},
+    depositValue : {type : Number, required : false}, // 保证金金额
+    paymentNo    : {type : String, required : false}, // 保证金金额
+    confirmDate  : {type : Date, required : false}, // 保证金金额
 
 
     redemptionValue : {type : Number, required : false},  // 本次还款金额
