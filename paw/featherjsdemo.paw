@@ -629,14 +629,14 @@
     </object>
     <object type="LMREQUEST" id="z158">
         <attribute name="uuid" type="string">52A08FE6-DF71-4C27-B55D-AD517DEC9723</attribute>
-        <attribute name="url" type="string">[{"data":{"environmentVariable":"E15A0A44-916F-4032-834F-212E48003651"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},{"data":{"environmentVariable":"A8F4783D-E744-4083-8C46-145FC071424E"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/financeorders\\/audit"]</attribute>
+        <attribute name="url" type="string">[{"data":{"environmentVariable":"E15A0A44-916F-4032-834F-212E48003651"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},{"data":{"environmentVariable":"A8F4783D-E744-4083-8C46-145FC071424E"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/financeorders\\/task"]</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
         <attribute name="redirectauthorization" type="bool">0</attribute>
         <attribute name="method" type="string">POST</attribute>
         <attribute name="followredirects" type="bool">0</attribute>
-        <attribute name="body" type="string">[{"data":{"json":"{\\"orderId\\":\\"584e2fd48ba2eb0f58649d53\\"\\/*,\\"flowId\\":\\"xxxx\\",\\"taskId\\":\\"xxxxx\\"*\\/,\\"action\\":\\"a11FinishedUpload\\"\\/*,\\"operator\\":\\"financer\\",\\"harborUserId\\":\\"583ea0b1f17d22ecde1ecb17\\",\\"supervisorUserId\\":\\"583fc370e6e14eedaa51d2a0\\",\\"fundProviderUserId\\":\\"583fd13e75a02a0f2935374e\\",\\"fundProviderAccountantUserId\\":\\"583fd178551ff10f40108c8c\\"*\\/,\\"file\\":\\"xxx\\"}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
+        <attribute name="body" type="string">[{"data":{"json":"{\\"orderId\\":\\"584e2fd48ba2eb0f58649d53\\",\\"action\\":\\"a11FinishedUpload\\"\\/*,\\"operator\\":\\"financer\\",\\"harborUserId\\":\\"583ea0b1f17d22ecde1ecb17\\",\\"supervisorUserId\\":\\"583fc370e6e14eedaa51d2a0\\",\\"fundProviderUserId\\":\\"583fd13e75a02a0f2935374e\\",\\"fundProviderAccountantUserId\\":\\"583fd178551ff10f40108c8c\\"*\\/,\\"file\\":\\"xxx\\"}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
         <attribute name="order" type="int64">3</attribute>
         <attribute name="name" type="string">FinanceOrdersStepChange</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z124"></relationship>
@@ -767,19 +767,19 @@
     </object>
     <object type="LMREQUEST" id="z170">
         <attribute name="uuid" type="string">689EBA65-E579-47A5-819A-4B9E06936B49</attribute>
-        <attribute name="url" type="string">[{"data":{"environmentVariable":"E15A0A44-916F-4032-834F-212E48003651"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},{"data":{"environmentVariable":"A8F4783D-E744-4083-8C46-145FC071424E"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/financeorders\\/action\\/xxxx"]</attribute>
+        <attribute name="url" type="string">[{"data":{"environmentVariable":"E15A0A44-916F-4032-834F-212E48003651"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},{"data":{"environmentVariable":"A8F4783D-E744-4083-8C46-145FC071424E"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"},"\\/financeorders\\/task\\/{taskName}"]</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
         <attribute name="redirectauthorization" type="bool">0</attribute>
         <attribute name="method" type="string">POST</attribute>
         <attribute name="followredirects" type="bool">0</attribute>
-        <attribute name="body" type="string">[{"data":{"json":"{\\/*\\"orderId\\":\\"584e2fd48ba2eb0f58649d53\\",*\\/\\"flowId\\":\\"xxxx\\",\\"taskId\\":\\"xxxxx\\"\\/*,\\"action\\":\\"a11FinishedUpload\\",\\"operator\\":\\"financer\\",\\"harborUserId\\":\\"583ea0b1f17d22ecde1ecb17\\",\\"supervisorUserId\\":\\"583fc370e6e14eedaa51d2a0\\",\\"fundProviderUserId\\":\\"583fd13e75a02a0f2935374e\\",\\"fundProviderAccountantUserId\\":\\"583fd178551ff10f40108c8c\\"*\\/,\\"fileList\\":[{\\"name\\":\\"xxxx\\",\\"url\\":\\"xxxx\\",\\"original\\":\\"xxxx\\"}]}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
+        <attribute name="body" type="string">[{"data":{"json":"{\\"flowId\\":\\"xxxx\\",\\"taskId\\":\\"xxxxx\\",\\"fundProviderUserId\\":\\"\\",\\"fundProviderCompanyId\\":\\"\\",\\"fundProviderAccountantUserId\\":\\"\\",\\"fundProviderAccountantCompanyId\\":\\"\\",\\"harborUserId\\":\\"583ea0b1f17d22ecde1ecb17\\",\\"harborCompanyId\\":\\"\\",\\"supervisorUserId\\":\\"583fc370e6e14eedaa51d2a0\\",\\"supervisorCompanyId\\":\\"\\",\\"harborConfirmAmount\\":\\"确认吨数\\",\\"approvedStatus\\":0,\\"status\\":1,\\"loanValue\\":\\"贸易商财务给出的建议放款金额\\",\\"repaymentValue\\":\\"融资方付款给贸易方还款\\",\\"redemptionAmount\\":\\"贸易商通知港口放款\\",\\"fileList\\":[\\"aaa\\",\\"xxx\\"]}"},"identifier":"com.luckymarmot.JSONDynamicValue"}]</attribute>
         <attribute name="order" type="int64">4</attribute>
         <attribute name="name" type="string">FinanceOrdersStepAction</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z124"></relationship>
         <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
-        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z169 z171"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z171 z169"></relationship>
     </object>
     <object type="LMKEYVALUE" id="z171">
         <attribute name="value" type="string">[{"data":{"environmentVariable":"F4A0BE75-BC00-41D9-BC32-C141F6106A59"},"identifier":"com.luckymarmot.EnvironmentVariableDynamicValue"}]</attribute>

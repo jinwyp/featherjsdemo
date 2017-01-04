@@ -31,6 +31,6 @@ module.exports = function () {
     financeOrderService.after(hooks.after);
 
 
-    app.post('/apimock/financeorders/audit', orderController.goNextStep(app));
+    app.post('/apimock/financeorders/task', orderController.goNextStep(app));
     app.get('/apimock/financeorders/file/:fileId', orderController.getFileById(app));
 };
