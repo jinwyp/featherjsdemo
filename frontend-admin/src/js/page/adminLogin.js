@@ -18,6 +18,7 @@ var login = function() {
             password : ''
         },
         errorMessage : {
+            inputUsername : '',
             inputEmail : '',
             inputPassword : '',
             ajax : ''
