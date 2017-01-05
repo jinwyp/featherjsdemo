@@ -47,8 +47,8 @@ const financeOrderSchema = new Schema({
 
     depositValue   : {type : Number, required : false},  // 保证金金额（万元)
     loanValue   : {type : Number, required : false},  // 实际放款总金额（万元)
-    loanInterestRate   : {type : Number, required : false},  // 放款利率（%)
-    loanFundProviderInterestRate   : {type : Number, required : false},  // 放款利率（%)
+    loanInterestRate   : {type : Number, required : false},  // 贸易商给融资方的放款利率（%)
+    loanFundProviderInterestRate   : {type : Number, required : false},  // 资金方给贸易商的放款利率（%)
 
     harborConfirmAmount     : {type : Number, required : false}, // 港口已确认数量（吨）
 
