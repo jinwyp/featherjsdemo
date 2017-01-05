@@ -1,8 +1,66 @@
+
+
+
+backend/lib/
+backend/data/
+
+frontend/src/upload
+
+
+frontend-admin/dist
+frontend-admin/src/js/page-temp-bundle
+frontend-admin/src/css/stylesheets
+
+frontend-admin/src/testing/report
+
+
+
+
+
+.tmp/
+files
+.vscode
+
+
+
+# ignore all config except basic!!!!
+backend/config/self.js
+
+
+
+
+
+# CSS Sprite
+
+_auto_sprite.scss
+.sass-cache
+*auto-sprite*
+
+
+
+
+
+
+
+
+
+
+# Ignore Mac OS desktop services store
+*.DS_Store
+
+
+# Ignore Windows desktop setting file
+desktop.ini
+
+
+
+
+
 # Logs
 logs
 *.log
 npm-debug.log*
-frontend/src/upload
+
 
 # Runtime data
 pids
@@ -40,8 +98,10 @@ jspm_packages
 
 
 
-backend/lib/
-backend/data/
+
+
+
+
 
 
 
@@ -49,21 +109,26 @@ backend/data/
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and Webstorm
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
-.idea/
+## File-based project format:
+*.iws
 
-# User-specific stuff:
-.idea/workspace.xml
-.idea/tasks.xml
-.idea/dictionaries
-.idea/vcs.xml
-.idea/jsLibraryMappings.xml
+## Plugin-specific files:
+
+# IntelliJ
+iml
 *.iml
+*.ipr
+.idea/
+out/
 
 
-# Sensitive or high-churn files:
-.idea/dataSources.ids
-.idea/dataSources.xml
-.idea/dataSources.local.xml
-.idea/sqlDataSources.xml
-.idea/dynamic.xml
-.idea/uiDesigner.xml
+
+
+# JIRA plugin
+atlassian-ide-plugin.xml
+
+# Crashlytics plugin (for Android Studio and IntelliJ)
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+fabric.properties
