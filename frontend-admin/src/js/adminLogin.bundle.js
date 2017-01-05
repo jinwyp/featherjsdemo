@@ -37,6 +37,7 @@ webpackJsonp([2],{
 	            password : ''
 	        },
 	        errorMessage : {
+	            inputUsername : '',
 	            inputEmail : '',
 	            inputPassword : '',
 	            ajax : ''

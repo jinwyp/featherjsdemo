@@ -47,8 +47,11 @@ webpackJsonp([8],[
 	        if (jqXHR.status === 401 || jqXHR.status === 403){
 	            window.location.href = '/warehouse/admin/login'
 	        }else{
-	            var data = JSON.parse(jqXHR.responseText);
-	            $.notify(data.error.message, 'error');
+	            var data = jqXHR.responseText;
+	            if (jqXHR.getResponseHeader('content-type').indexOf('json') > -1){
+	                data = JSON.parse(jqXHR.responseText);
+	            }
+	            $.notify(data || data.error.message, 'error');
 	        }
 	    });
 	
@@ -70770,37 +70773,42 @@ webpackJsonp([8],[
 	            if (sessionUserRole === vm.role.financer){
 	
 	                // 融资方 还款金额
+	                if (vm.currentOrder.status === 'financingStep12'){
 	
-	                vm.errorRepaymentValue = false;
+	                }else{
+	                    vm.errorRepaymentValue = false;
 	
-	                if (!vm.inputRepaymentValue || vm.inputRepaymentValue < 10) {
-	                    vm.errorRepaymentValue = true;
-	                    return ;
+	                    if (!vm.inputRepaymentValue || vm.inputRepaymentValue < 10) {
+	                        vm.errorRepaymentValue = true;
+	                        return ;
 	
-	                } else {
-	                    var tempLeftValue = vm.currentOrder.loanValue;
+	                    } else {
+	                        var tempLeftValue = vm.currentOrder.loanValue;
 	
-	                    vm.repaymentList.forEach(function(pay){
-	                        tempLeftValue = tempLeftValue - pay.redemptionValue;
-	                    })
+	                        vm.repaymentList.forEach(function(pay){
+	                            tempLeftValue = tempLeftValue - pay.redemptionValue;
+	                        })
 	
-	                    var tempPaymentOrder = {
-	                        redemptionValue : vm.inputRepaymentValue,
-	                        leftPrincipalValue : tempLeftValue - vm.inputRepaymentValue,
-	                        paymentType  : orderService.paymentTypeKey.repayment,
-	                        orderId      : orderId,
-	                        orderNo      : vm.currentOrder.orderNo
-	                    }
-	
-	                    additionalData.repaymentValue = vm.inputRepaymentValue
-	
-	                    orderService.addNewPaymentOrder(tempPaymentOrder).done(function (data) {
-	                        if (data.success) {
-	                        } else {
-	                            console.log(data.error);
+	                        var tempPaymentOrder = {
+	                            redemptionValue : vm.inputRepaymentValue,
+	                            leftPrincipalValue : tempLeftValue - vm.inputRepaymentValue,
+	                            paymentType  : orderService.paymentTypeKey.repayment,
+	                            orderId      : orderId,
+	                            orderNo      : vm.currentOrder.orderNo
 	                        }
-	                    })
+	
+	                        additionalData.repaymentValue = vm.inputRepaymentValue
+	
+	                        orderService.addNewPaymentOrder(tempPaymentOrder).done(function (data) {
+	                            if (data.success) {
+	                            } else {
+	                                console.log(data.error);
+	                            }
+	                        })
+	                    }
 	                }
+	
+	
 	
 	            }
 	

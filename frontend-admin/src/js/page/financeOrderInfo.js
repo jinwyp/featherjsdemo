@@ -224,8 +224,6 @@ var orderInfo = function () {
                     }
                 }
 
-
-
             }
 
             orderService.auditFinanceOrder(orderId, sessionUserRole, actionName, additionalData).done(function (data) {
