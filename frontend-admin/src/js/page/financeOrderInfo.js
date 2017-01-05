@@ -60,7 +60,7 @@ var orderInfo = function () {
 
                         vm.errorRedemptionAmount = false;
 
-                        if (!vm.inputRedemptionAmount || vm.inputRedemptionAmount < 10) {
+                        if (!vm.inputRedemptionAmount || vm.inputRedemptionAmount < 10 || vm.inputRedemptionFileList.length === 0 ) {
                             vm.errorRedemptionAmount = true;
                             return ;
                         } else {
@@ -79,6 +79,7 @@ var orderInfo = function () {
                                 tempDelivery.uploadFiles.push(file.fileId)
                                 additionalData.fileList.push(file.fileId)
                             })
+
 
 
                             orderService.addNewDelivery(tempDelivery).done(function (data) {
