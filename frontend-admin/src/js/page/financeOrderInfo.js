@@ -189,37 +189,42 @@ var orderInfo = function () {
             if (sessionUserRole === vm.role.financer){
 
                 // 融资方 还款金额
+                if (vm.currentOrder.status === 'financingStep12'){
 
-                vm.errorRepaymentValue = false;
+                }else{
+                    vm.errorRepaymentValue = false;
 
-                if (!vm.inputRepaymentValue || vm.inputRepaymentValue < 10) {
-                    vm.errorRepaymentValue = true;
-                    return ;
+                    if (!vm.inputRepaymentValue || vm.inputRepaymentValue < 10) {
+                        vm.errorRepaymentValue = true;
+                        return ;
 
-                } else {
-                    var tempLeftValue = vm.currentOrder.loanValue;
+                    } else {
+                        var tempLeftValue = vm.currentOrder.loanValue;
 
-                    vm.repaymentList.forEach(function(pay){
-                        tempLeftValue = tempLeftValue - pay.redemptionValue;
-                    })
+                        vm.repaymentList.forEach(function(pay){
+                            tempLeftValue = tempLeftValue - pay.redemptionValue;
+                        })
 
-                    var tempPaymentOrder = {
-                        redemptionValue : vm.inputRepaymentValue,
-                        leftPrincipalValue : tempLeftValue - vm.inputRepaymentValue,
-                        paymentType  : orderService.paymentTypeKey.repayment,
-                        orderId      : orderId,
-                        orderNo      : vm.currentOrder.orderNo
-                    }
-
-                    additionalData.repaymentValue = vm.inputRepaymentValue
-
-                    orderService.addNewPaymentOrder(tempPaymentOrder).done(function (data) {
-                        if (data.success) {
-                        } else {
-                            console.log(data.error);
+                        var tempPaymentOrder = {
+                            redemptionValue : vm.inputRepaymentValue,
+                            leftPrincipalValue : tempLeftValue - vm.inputRepaymentValue,
+                            paymentType  : orderService.paymentTypeKey.repayment,
+                            orderId      : orderId,
+                            orderNo      : vm.currentOrder.orderNo
                         }
-                    })
+
+                        additionalData.repaymentValue = vm.inputRepaymentValue
+
+                        orderService.addNewPaymentOrder(tempPaymentOrder).done(function (data) {
+                            if (data.success) {
+                            } else {
+                                console.log(data.error);
+                            }
+                        })
+                    }
                 }
+
+
 
             }
 
