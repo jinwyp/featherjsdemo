@@ -26,7 +26,8 @@ const app = feathers();
 app.configure(configuration(path.join(__dirname, '..')));
 
 
-
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, '/views'));
 
 app.use(compress())
     .options('*', cors())
@@ -34,6 +35,7 @@ app.use(compress())
     .use(cors())
     .use(favicon(path.join(app.get('public'), 'favicon.ico')))
     .use('/', serveStatic(app.get('public')))
+    .use('/static/admin', serveStatic(path.join(__dirname, '../../frontend-admin/src')))
     .use(bodyParser.json())
     .use(bodyParser.urlencoded({extended : true}))
     .configure(hooks())
@@ -43,6 +45,7 @@ app.use(compress())
     .configure(middleware)
 
 ;
+
 
 
 module.exports = app;

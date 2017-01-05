@@ -17,7 +17,8 @@ const userSchema = new Schema({
     mobilePhone : {type : String, required : true, unique : true},
     password    : {type : String, required : false, default:"$2a$10$umZG.q.5Co02rBd2yzcVZeZYb2cGX6IN1Yesyny6scXmpGxfMgEwG"},
 
-    companyName : {type : String, required : true},
+    companyName : {type : String},
+    companyId : {type : String},
     role : {type : String, required : true},
     belongToUser : {type: Schema.Types.ObjectId, required : false},
 
