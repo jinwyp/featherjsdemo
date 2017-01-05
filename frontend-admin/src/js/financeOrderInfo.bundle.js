@@ -3297,8 +3297,8 @@ webpackJsonp([8],[
 	    {statusAt:"financingStep20", operator : 'fundProviderAccountant', name : 'a22auto', displayName : '自动确认收款2'},
 	
 	
-	    {statusAt:"financingStep21", operator : 'financer', name : 'a31FirstReturnMoney', displayName : '确认回款'},
-	    {statusAt:"repaymentStep34", operator : 'financer', name : 'a32SecondReturnMoney', displayName : '确认回款'},
+	    {statusAt:"financingStep21", operator : 'financer', name : 'a31FirstReturnMoney', displayName : '确认还款'},
+	    {statusAt:"repaymentStep34", operator : 'financer', name : 'a32SecondReturnMoney', displayName : '确认还款'},
 	
 	    {statusAt:"repaymentStep31", operator : 'trader', name : 'a32ReturnPortionCargo', displayName : ' 部分回款完成,确认放货'},
 	    {statusAt:"repaymentStep31", operator : 'trader', name : 'a33ReturnAllCargo', displayName : '全部回款完成,确认放货'},
@@ -70644,7 +70644,7 @@ webpackJsonp([8],[
 	
 	                        vm.errorRedemptionAmount = false;
 	
-	                        if (!vm.inputRedemptionAmount || vm.inputRedemptionAmount < 10) {
+	                        if (!vm.inputRedemptionAmount || vm.inputRedemptionAmount < 10 || vm.inputRedemptionFileList.length === 0 ) {
 	                            vm.errorRedemptionAmount = true;
 	                            return ;
 	                        } else {
@@ -70663,6 +70663,7 @@ webpackJsonp([8],[
 	                                tempDelivery.uploadFiles.push(file.fileId)
 	                                additionalData.fileList.push(file.fileId)
 	                            })
+	
 	
 	
 	                            orderService.addNewDelivery(tempDelivery).done(function (data) {
@@ -70808,8 +70809,6 @@ webpackJsonp([8],[
 	                    }
 	                }
 	
-	
-	
 	            }
 	
 	            orderService.auditFinanceOrder(orderId, sessionUserRole, actionName, additionalData).done(function (data) {
@@ -70826,6 +70825,16 @@ webpackJsonp([8],[
 	            event.preventDefault();
 	            orderService.getContractById(file._id);
 	        },
+	
+	        deleteFile : function (event, file) {
+	            event.preventDefault();
+	            var tempIndex = vm.uploadFileList.indexOf(file);
+	            if (tempIndex > -1){
+	                vm.uploadFileList.splice(tempIndex, 1)
+	                uploadFileList.splice(tempIndex, 1)
+	            }
+	        },
+	
 	
 	        contractFilter : function (el, i, role) {
 	            // console.log(el, i,role)
@@ -70920,6 +70929,7 @@ webpackJsonp([8],[
 	            event.preventDefault();
 	
 	        }
+	
 	
 	    });
 	
