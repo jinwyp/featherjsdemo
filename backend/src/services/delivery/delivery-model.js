@@ -16,6 +16,7 @@ const deliverySchema = new Schema({
     orderId : {type : String, required : true},
 
     redemptionAmount : {type : Number, required : false}, // 贸易商告知港口返还货物吨位
+    receiver : {type : String}, // 收货方
     confirmDate  : {type : Date, required : false},
     uploadFiles : [{type : Schema.Types.ObjectId, ref : 'file'}]
 
