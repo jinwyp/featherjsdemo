@@ -198,8 +198,6 @@ var orderInfo = function () {
                         })
                     }
                 }
-
-
             }
 
 
