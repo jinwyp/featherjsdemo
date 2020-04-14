@@ -40,7 +40,7 @@
     "feathers-rest": "^1.5.1",
     "feathers-socketio": "^1.4.1",
     "fs-blob-store": "^5.2.1",
-    "mongoose": "^4.6.5",
+    "mongoose": "^5.9.9",
     "morgan": "^1.7.0",
     "multer": "^1.2.1",
     "passport": "^0.3.2",
